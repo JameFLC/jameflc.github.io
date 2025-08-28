@@ -103,7 +103,6 @@ const config = {
 	kit: {
 		adapter: adapter({
 			strict: false,
-			fallback: 'index.html'
 		})
 	},
 	extensions: ['.svelte', '.md']
