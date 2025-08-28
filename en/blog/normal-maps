@@ -12,28 +12,28 @@
 		<link href="../../_app/immutable/assets/blog.D9BamZMJ.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/ImageLine.CAADl_rs.css" rel="stylesheet">
 		<link href="../../_app/immutable/assets/BlogHeader.C8YjtI31.css" rel="stylesheet">
-		<link rel="modulepreload" href="../../_app/immutable/entry/start.BJ_gxxzT.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/CYSP6NlF.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.G9ReZrSj.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Bui5MOMr.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Bm71ymzX.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/NYUUSniZ.js">
-		<link rel="modulepreload" href="../../_app/immutable/entry/app.DKutdIeD.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.B1eI7jDt.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/DNn2cqiw.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/KFbLBMNv.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/DMdQCuBz.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/Csq-aEhW.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/DF1ykZbt.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/BVURUfRG.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/0.CHGlVueX.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.S76kAOzb.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/CiU2yvg0.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/DtZ_EB9E.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/7lMFSiOh.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/COpt4jaA.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/BDchK3QZ.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/DFnrMYi5.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/FpRUuDmg.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/DapS1uLq.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/2.1G89HuCn.js">
-		<link rel="modulepreload" href="../../_app/immutable/nodes/7.BMwRE_Kz.js">
-		<link rel="modulepreload" href="../../_app/immutable/chunks/DQuEd7xq.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/lMJLDgNw.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/4CPaWPRw.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/2.3UayU8Wj.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/7.DyWAPDLq.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/BwAaJptA.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/BW25n9hM.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/735axTuM.js">
 		<link rel="modulepreload" href="../../_app/immutable/chunks/C-K7O-Rm.js"><!--[--><meta property="og:type" content="article"> <meta property="og:title" content="The art and weirdness of normal maps"><!--]--><title>The art and weirdness of normal maps</title>
@@ -44,15 +44,15 @@
 			
 			<script>
 				{
-					__sveltekit_94h2gt = {
+					__sveltekit_h1ouft = {
 						base: new URL("../..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../../_app/immutable/entry/start.BJ_gxxzT.js"),
-						import("../../_app/immutable/entry/app.DKutdIeD.js")
+						import("../../_app/immutable/entry/start.G9ReZrSj.js"),
+						import("../../_app/immutable/entry/app.B1eI7jDt.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2, 7],
