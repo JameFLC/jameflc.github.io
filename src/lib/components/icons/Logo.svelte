@@ -1,0 +1,36 @@
+<!-- Icon made my https://lineicons.com search notebook-1 in the free section -->
+<script lang="ts">
+	let {
+		style
+	}: {
+		style?: string;
+	} = $props();
+</script>
+
+<svg
+	viewBox="0 0 24 24"
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xml:space="preserve"
+	{style}
+>
+	<path
+		id="J"
+		d="M6,0L18,0C21.312,0 24,2.689 24,6C24,7.104 23.104,8 22,8L2,8C0.896,8 0,7.104 0,6C0,2.689 2.689,0 6,0ZM6,24C2.689,24 0,21.312 0,18C0,16.896 0.896,16 2,16L14,16C15.104,16 16,16.896 16,18C16,21.312 13.312,24 10,24L6,24Z"
+	/>
+</svg>
+
+<style>
+	svg {
+		--size: var(--s);
+
+		fill-rule: evenodd;
+		clip-rule: evenodd;
+		stroke-linejoin: round;
+		stroke-miterlimit: 2;
+
+		height: var(--size);
+		width: var(--size);
+	}
+</style>
