@@ -142,6 +142,8 @@ body {
 	margin: 0px;
 	min-height: 380px;
 	text-wrap: pretty;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 /* Debug */
