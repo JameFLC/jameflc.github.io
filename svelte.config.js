@@ -102,7 +102,8 @@ const config = {
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 	kit: {
 		adapter: adapter({
-			strict: false
+			strict: false,
+			fallback: 'index.html'
 		})
 	},
 	extensions: ['.svelte', '.md']
