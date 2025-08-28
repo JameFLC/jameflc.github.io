@@ -1,0 +1,1 @@
+import{t as e,a as p}from"../chunks/Csq-aEhW.js";import{c as i,r as s}from"../chunks/NYUUSniZ.js";import{s as m}from"../chunks/CiU2yvg0.js";/* empty css                */var n=e('<div class="content-wrapper-home"><!></div>');function f(r,t){var o=n(),a=i(o);m(a,()=>t.children),s(o),p(r,o)}export{f as component};
