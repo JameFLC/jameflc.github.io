@@ -139,7 +139,7 @@
 	<SkillBadge name="Visual Studio Code" src="/images/skills/VisualStudioCode.webp" />
 </section>
 <section>
-	<SectionTitle>Art and Design Tools</SectionTitle>\
+	<SectionTitle>Art and Design Tools</SectionTitle>
 	<SkillBadge name="Blender" src="/images/skills/Blender.webp" />
 	<SkillBadge name="Affinity Designer" src="/images/skills/AffinityDesigner.webp" />
 	<SkillBadge name="Affinity Photo" src="/images/skills/AffinityPhoto.webp" />
