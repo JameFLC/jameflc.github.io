@@ -165,14 +165,14 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/PrecisionDonut Flower.webp"
-		title="Éxpérimentation de la precision des floats"
+		title="Expérimentation de la precision des floats"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>
 
 	<GalleryThumbnail
 		src="/images/gallery/PrecisionDonutSunFlower.webp"
-		title="Éxpérimentation de la precision des floats"
+		title="Expérimentation de la precision des floats"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>

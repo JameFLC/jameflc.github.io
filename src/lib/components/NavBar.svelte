@@ -12,7 +12,7 @@
 		<NavBarLink href="/">
 			<div class="link-content">
 				<IconHome />
-				<Translator fr="Acceuil" en="Home" />
+				<Translator fr="Accueil" en="Home" />
 			</div>
 		</NavBarLink>
 		<NavBarLink href="/gallery">
