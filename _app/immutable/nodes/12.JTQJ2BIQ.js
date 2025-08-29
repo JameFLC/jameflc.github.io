@@ -1,0 +1,1 @@
+import{b as e,a as p}from"../chunks/Csq-aEhW.js";import"../chunks/BDchK3QZ.js";import{n as m}from"../chunks/NYUUSniZ.js";import"../chunks/DJjBvQ5b.js";/* empty css                */import{L as a}from"../chunks/0QXrN0kp.js";function c(t){a(t,{href:"/",children:(o,i)=>{m();var r=e("Home");p(o,r)},$$slots:{default:!0}})}export{c as component};
