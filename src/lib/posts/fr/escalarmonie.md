@@ -84,7 +84,7 @@ Pour faciliter l'installation des capteurs, j'ai modélisé des supports articul
 
 # Système numérique
 
-Je me suis occupé de la programmation du système numérique du projet. Pour cela, j'ai choisi d'utiliser le moteur de jeu _Unity_.  Grâce au projet [Maldirach](/blog/malriach), j'avais l'expérience de contrôler un système audio via un _ESP32_ avec ce moteur. De plus, le système de _Mastering audio_ du moteur permet d'obtenir des effets relativement complexes sans avoir besoin de librairies audio externes. Enfin, le moteur permet de créer des interfaces utilisateurs avancées. Cela a été très utile durant le projet.
+Je me suis occupé de la programmation du système numérique du projet. Pour cela, j'ai choisi d'utiliser le moteur de jeu _Unity_.  Grâce au projet [Maldirach](/blog/maldirach), j'avais l'expérience de contrôler un système audio via un _ESP32_ avec ce moteur. De plus, le système de _Mastering audio_ du moteur permet d'obtenir des effets relativement complexes sans avoir besoin de librairies audio externes. Enfin, le moteur permet de créer des interfaces utilisateurs avancées. Cela a été très utile durant le projet.
 
 ## Communication avec l'_ESP32_
 

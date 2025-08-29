@@ -13,12 +13,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 			html.replace(/lang=".*"/gm, `lang="${getLangAttr(event.url.pathname)}"`)
 	});
 
-	// Fix utf related issues (accents being corrupted) when javascript is disabled on the page
-	if (
-		response.headers.get('content-type')?.startsWith('text/html') &&
-		!response.headers.get('content-type')?.includes('charset')
-	) {
-		response.headers.set('content-type', 'text/html; charset=utf-8');
+	// Only adjust headers if it's HTML
+	if (response.headers.get('content-type')?.startsWith('text/html')) {
+		response.headers.set('content-type', 'text/html');
+		response.headers.set('charset', 'utf-8');
 	}
 
 	return response;

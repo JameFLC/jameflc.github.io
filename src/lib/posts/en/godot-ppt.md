@@ -34,8 +34,6 @@ Thus, a number of brand new approaches has been tested during the the improvemen
 
 Having just scratched the surface of what is possible with scroll-driven animations, I knew a blog post was in order to show off some of the incredible features of scroll-driven animations.
 
-[Link Test](/posts/godot-ppt)
-
 ## Voronoi
 
 <VoronoiSlider/>
@@ -47,10 +45,6 @@ Having just scratched the surface of what is possible with scroll-driven animati
 # Why make such a thing ?
 
 When you apply animations to elements, they use the document timeline to track the progress of the animation including any delays before starting the animation, and then the duration of the animation itself
-
-![What a wide wide thing this is, it is really impressive to see something like that in this type of content !](/images/blog/FlyingIslands_Wide.webp)
-
-![Amaze you senses with these amazing islands](/images/blog/FlyingIslands.webp)
 
 Because [scroll-driven animations](https://jame.works/unityanimationsystem) are based on scroll progress **and** not _time_ durations, the document `timeline` doesn’t make sense when starting to think about <u>animating elements</u> based on scroll position.
 
@@ -181,7 +175,7 @@ internal partial class AnimatedImage : UserControl
 
 Here's a small demo showing how the algorithm works... Imagine a cool slider that lets you peek behind the scenes of creating an awesome procedural island! As you drag the slider, you'll see the magic happen step by step. Start at the beginning, and watch a blank canvas transform into a totally unique island. First, it's just random bumps and noise.
 
-![Image of the islands in game](/images/gallery/ProceduralGen.jpg)
+![Image of the islands in game](/images/gallery/ProceduralGen.webp)
 
 Then, boom – erosion kicks in, and suddenly the terrain looks super realistic, with valleys and mountains taking shape. Slide a bit more, and watch colors pop up representing different biomes – maybe some lush green forests, rocky highlands, or sandy beaches. Keep going, and you'll see tiny details emerge like rivers cutting through the landscape, beaches forming along the coastline, and vegetation sprouting up. It's like watching an entire world come to life right before your eyes, with each movement of the slider revealing another layer of complexity. Pretty neat, right?
 
