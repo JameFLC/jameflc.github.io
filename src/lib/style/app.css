@@ -134,6 +134,12 @@
 	--dxxxl: 1500ms;
 }
 
+html,
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
 body {
 	font-family:
 		'SN Pro', ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari,
@@ -142,8 +148,6 @@ body {
 	margin: 0px;
 	min-height: 380px;
 	text-wrap: pretty;
-	max-width: 100%;
-	overflow-x: hidden;
 }
 
 /* Debug */

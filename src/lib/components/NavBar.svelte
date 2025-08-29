@@ -46,6 +46,7 @@
 		width: 100vw;
 		height: 100vh;
 		height: 100svh;
+		height: 100dvh;
 		left: 0;
 		right: 0;
 		top: 0;
