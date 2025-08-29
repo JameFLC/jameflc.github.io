@@ -5,7 +5,24 @@
 	import ContactList from '$lib/components/cv/ContactList.svelte';
 	import ExperienceTimeline from '$lib/components/cv/ExperienceTimeline.svelte';
 	import SkillBadge from '$lib/components/cv/SkillBadge.svelte';
+	import { websiteURL } from '$lib';
+	import { page } from '$app/state';
 </script>
+
+<svelte:head>
+	<title>CV Jame FLC</title>
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="CV" />
+	<meta property="og:description" content="Site personnel de Jame Floc'h Le Carour" />
+	<meta property="og:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content={websiteURL} />
+	<meta property="twitter:url" content={websiteURL + page.url.pathname} />
+	<meta name="twitter:title" content="CV" />
+	<meta name="twitter:description" content="Site personnel de Jame Floc'h Le Carour" />
+	<meta name="twitter:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
+</svelte:head>
 
 <section>
 	<SectionTitle>Profile</SectionTitle>

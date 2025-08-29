@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { websiteURL } from '$lib';
 	import ImageLine from '$lib/components/blog/layout/ImageLine.svelte';
 	import LearnMore from '$lib/components/LearnMore.svelte';
 	import Link from '$lib/components/Link.svelte';
@@ -7,6 +8,21 @@
 
 	let { data } = $props();
 </script>
+
+<svelte:head>
+	<title>Jame FLC</title>
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="jame.works" />
+	<meta property="og:description" content="Site personnel de Jame Floc'h Le Carour" />
+	<meta property="og:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content={websiteURL} />
+	<meta property="twitter:url" content={websiteURL} />
+	<meta name="twitter:title" content="jame.works" />
+	<meta name="twitter:description" content="Site personnel de Jame Floc'h Le Carour" />
+	<meta name="twitter:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
+</svelte:head>
 
 <div class="content-wrapper-home">
 	<h1>Bonjour et bienvenue dans mon petit coin d'internet !</h1>
