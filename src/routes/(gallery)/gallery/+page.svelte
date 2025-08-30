@@ -38,7 +38,7 @@
 	/>
 
 	<GalleryThumbnail
-		src="/images/gallery/HologramDemo.mp4"
+		src="/images/gallery/HologramDemo.webp"
 		title="Hologrammes En Réalité Augmenté"
 		tag="Software"
 		href="/blog/hologram"

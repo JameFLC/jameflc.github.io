@@ -27,7 +27,7 @@
 	/>
 
 	<GalleryThumbnail
-		src="/images/gallery/HologramDemo.mp4"
+		src="/images/gallery/HologramDemo.webp"
 		title="IRL Hologram"
 		tag="sofware"
 		aspectRatio={16 / 9}
