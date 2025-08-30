@@ -155,4 +155,8 @@
 		margin-top: 0;
 		margin-bottom: 0;
 	}
+
+	.description {
+		max-width: calc(100vw - var(--rxl));
+	}
 </style>
