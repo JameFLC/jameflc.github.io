@@ -39,7 +39,7 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/HologramDemo.webp"
-		title="Hologrammes En Réalité Augmenté"
+		title="Hologrammes"
 		tag="Software"
 		href="/blog/hologram"
 		aspectRatio={16 / 9}
@@ -106,7 +106,7 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/VirtualTemple.mp4"
-		title="Temple Virtuel Pour Green Screen"
+		title="Temple Virtuel"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>
