@@ -161,7 +161,7 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/GlitchedEmoji.webp"
-		title="Visage ASCII holographique glitché"
+		title="Visage ASCII"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>
@@ -182,14 +182,14 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/PrecisionDonut Flower.webp"
-		title="Expérimentation de la precision des floats"
+		title="Float Glitch"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>
 
 	<GalleryThumbnail
 		src="/images/gallery/PrecisionDonutSunFlower.webp"
-		title="Expérimentation de la precision des floats"
+		title="Float Glitch"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>
