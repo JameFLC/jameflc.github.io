@@ -5,7 +5,9 @@ thumbnail: '/images/thumbnails/DodgyOrb.webp'
 date: '2025-05-06'
 type: project
 tags:
-  - tag
+  - unity
+  - 3d
+  - audio
 published: true
 ---
 

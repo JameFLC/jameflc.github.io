@@ -7,7 +7,7 @@ type: project
 tags:
   - unity
   - rendering
-  - wip
+  - 3d
 published: true
 ---
 

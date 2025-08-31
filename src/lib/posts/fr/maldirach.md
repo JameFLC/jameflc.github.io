@@ -5,7 +5,9 @@ thumbnail: '/images/thumbnails/Maldirach.webp'
 date: '2025-05-02'
 type: project
 tags:
+  - unity
   - a11y
+  - esp32
 published: true
 ---
 

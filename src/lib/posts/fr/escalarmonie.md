@@ -5,7 +5,9 @@ thumbnail: '/images/thumbnails/Escalarmony.webp'
 date: '2025-05-08'
 type: project
 tags:
-  - tag
+  - unity
+  - esp32
+  - audio
 published: true
 ---
 
