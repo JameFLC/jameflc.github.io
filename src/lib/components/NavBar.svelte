@@ -18,7 +18,7 @@
 		<NavBarLink href="/gallery">
 			<div class="link-content">
 				<IconCraft />
-				<Translator fr="Gallerie" en="Gallery" />
+				<Translator fr="Galerie" en="Gallery" />
 			</div>
 		</NavBarLink>
 		<!-- <NavBarLink href="/">

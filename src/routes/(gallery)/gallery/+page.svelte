@@ -5,21 +5,21 @@
 </script>
 
 <svelte:head>
-	<title>Gallerie Jame FLC</title>
+	<title>Galerie Jame FLC</title>
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Gallerie" />
-	<meta property="og:description" content="Gallerie des projets de Jame Floc'h Le Carour" />
+	<meta property="og:title" content="Galerie" />
+	<meta property="og:description" content="Galerie des projets de Jame Floc'h Le Carour" />
 	<meta property="og:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:domain" content={websiteURL} />
 	<meta property="twitter:url" content={websiteURL + page.url.pathname} />
-	<meta name="twitter:title" content="Gallerie" />
-	<meta name="twitter:description" content="Gallerie des projets de Jame Floc'h Le Carour" />
+	<meta name="twitter:title" content="Galerie" />
+	<meta name="twitter:description" content="Galerie des projets de Jame Floc'h Le Carour" />
 	<meta name="twitter:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
 </svelte:head>
 
-<h1>Gallerie</h1>
+<h1>Galerie</h1>
 <div class="auto-grid" style="gap: var(--rl);">
 	<GalleryThumbnail
 		src="/images/gallery/DodgyOrb.webp"
