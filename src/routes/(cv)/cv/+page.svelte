@@ -30,9 +30,9 @@
 	<Profile>
 		Je suis <span class="text-black">Jame</span>, un
 		<span class="text-semi-bold">Ingénieur Informatique</span>, game developer et créateur 3D basé
-		en France. Je créer des choses qui peuvent être affichées, manipulées, jouées ou cliquées. Je me
-		consacre à créer des logiciels de qualité et agréables à utiliser, qu'il s'agisse de jeux,
-		d'applications ou d'outils.
+		en France. Je suis spécialisé dans tout ce qui tourne autour des sujets sur la 3D, l'animation,
+		l'UI et l'UX. Je me consacre à créer des logiciels de qualité et agréables à utiliser, qu'il
+		s'agisse de jeux, d'applications ou d'outils.
 		<br />
 		<br />
 		J'ai également des connaissances avancées en
