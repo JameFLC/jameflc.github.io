@@ -29,11 +29,11 @@
 
 	<p>
 		Je suis <span class="text-black">Jame</span>, un
-		<span class="text-semi-bold">Ingénieur Informatique</span>, game developer et créateur 3D basé
-		en France. Je prend plaisir à créer des choses qui peuvent être affichées, manipulées, jouées ou
-		cliquées. Ça fait tiquer mon cerveau. Je me consacre à créer des logiciels de qualité et
-		agréables à utiliser, qu'il s'agisse de jeux, d'applications ou d'outils. Ce site est là pour
-		partager mon parcours, mes projets et ma passion de créer.
+		<span class="text-semi-bold">Ingénieur Informatique</span>, game developer et créateur 3D. Je
+		suis spécialisé dans tout ce qui tourne autour des sujets sur la 3D, l'animation, l'UI et l'UX.
+		Je me consacre à créer des logiciels de qualité et agréables à utiliser, qu'il s'agisse de jeux,
+		d'applications ou d'outils. Ce site est là pour partager mon parcours, mes projets et ma passion
+		de créer.
 		<br />
 		<br />
 		Si vous aimez ce que vous trouvez ici, n'hésitez pas à <Link href="/cv">me contacter</Link> 😉
