@@ -20,7 +20,7 @@
 <style>
 	.wrapper {
 		display: inline-block;
-		width: calc(3 * var(--rxxl));
+		width: calc(2.5 * var(--rxxl));
 	}
 
 	.image-outline {
