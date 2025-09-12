@@ -6,7 +6,6 @@
 
 	let {
 		href,
-
 		children,
 		...others
 	}: {
@@ -16,7 +15,7 @@
 </script>
 
 <div class="x-centerer">
-	<Link {href} propClass="strong-page-link">
+	<Link {href} propClass="strong-page-link" {...others}>
 		<span>{@render children?.()}</span>
 		<IconLinkThin style="--size: 1ch" />
 	</Link>

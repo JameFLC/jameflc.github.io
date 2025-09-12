@@ -7,6 +7,7 @@
 	import SkillBadge from '$lib/components/cv/SkillBadge.svelte';
 	import { websiteURL } from '$lib';
 	import { page } from '$app/state';
+	import IconLinkThin from '$lib/components/icons/IconLinkThin.svelte';
 </script>
 
 <svelte:head>
@@ -41,7 +42,16 @@
 		>
 	</Profile>
 
-	<!-- <StrongPageLink href="/cv">Get Resume PDF</StrongPageLink> -->
+	<div class="x-centerer">
+		<a
+			class="strong-page-link"
+			href="/documents/cv/fr/CV Jame Floc'h Le Carour - Ingénieur.pdf"
+			download
+		>
+			<span>Télécharger le CV</span>
+			<IconLinkThin style="--size: 1ch" />
+		</a>
+	</div>
 </section>
 <section>
 	<SectionTitle>Contact Informations</SectionTitle>
