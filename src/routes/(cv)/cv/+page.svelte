@@ -1,5 +1,4 @@
 <script>
-	import StrongPageLink from '$lib/components/StrongPageLink.svelte';
 	import Profile from '$lib/components/cv/Profile.svelte';
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 	import ContactList from '$lib/components/cv/ContactList.svelte';
