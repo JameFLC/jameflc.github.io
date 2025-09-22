@@ -11,7 +11,7 @@ export default function remarkImageToVideo() {
             if (matchingExtension) {
                 node.type = 'html';
 
-                node.value = `<video controls><source src="${node.url}" type="video/${matchingExtension}">${node.alt}</video>`;
+                node.value = `<video controls><source src="${node.url}#t=0.001" type="video/${matchingExtension}">${node.alt}</video>`;
             }
         });
     };
