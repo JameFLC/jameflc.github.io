@@ -103,7 +103,10 @@ const config = {
 	kit: {
 		adapter: adapter({
 			strict: false,
-		})
+		}),
+		prerender: {
+			handleHttpError: 'warn'
+		}
 	},
 	extensions: ['.svelte', '.md']
 };
