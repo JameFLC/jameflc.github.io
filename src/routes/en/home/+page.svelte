@@ -55,7 +55,6 @@
 				<PostPreviewCard {post} />
 			{/each}
 		</ul>
-		<PageLink href="/">More Projects</PageLink>
 	</section>
 
 	<ImageLine
