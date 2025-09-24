@@ -21,7 +21,7 @@ published: true
 
 # Introduction
 
-Bonjour bonjour. Aujourd'hui je vais vous présenter le projet **À travers le Maldirach**. Il s'agit d'un jeu de plateau d'énigme-aventure collaboratif qui demande à deux joueurs de collaborer pour naviguer dans un monde dangereux.
+Bonjour, bonjour. Aujourd'hui je vais vous présenter le projet **À travers le Maldirach**. Il s'agit d'un jeu de plateau d'énigme-aventure collaboratif qui demande à deux joueurs de collaborer pour naviguer dans un monde dangereux.
 
 ![Illustrations des marrais du Maldirarch illustré par Baptiste Lalue](/images/blog/Maldirach/Marrais_white.webp)
 
@@ -36,12 +36,12 @@ Ce jeu a été créé dans le contexte d'un projet d'une semaine portant sur les
 
 Ce jeu a été réalisé dans le cadre du workshop "inclus et connecté" au CNAM-ENJMIN en septembre 2023. Nous sommes 6 à avoir travaillé sur ce projet :
 
-- fae (Game Design, doublage, concept et fabrication de la carte)
-- Paul CORET (Sound Design)
-- Baptiste LALUE (Graphismes, doublage, concept et fabrication de la carte)
-- Jame FLOC'H LE CAROUR (Programmation, montage du circuit, doublage)
-- Wilfried FOTSO NDEFO (Programmation, montage du circuit, doublage)
-- Eris DESQUILBET (Gestion de projet, concept et fabrication de la carte)
+- Fae : Game Design, doublage, concept et fabrication de la carte
+- Paul CORET : Sound Design
+- Baptiste LALUE : Graphismes, doublage, concept et fabrication de la carte
+- Jame FLOC'H LE CAROUR : Programmation, montage du circuit, doublage
+- Wilfried FOTSO NDEFO : Programmation, montage du circuit, doublage
+- Eris DESQUILBET : Gestion de projet, concept et fabrication de la carte
 
 En plus des tâches principales assignées, chaque personne a participé à l'idéation du concept et à la création et aux discussions concernant les problématiques d'accessibilité du projet.
 

@@ -14,9 +14,9 @@
 			</div>
 		</NavBarLink>
 		<NavBar />
-		<!-- <div class="language">
+		<div class="language">
 			<LangSwitch />
-		</div> -->
+		</div>
 	</nav>
 </header>
 

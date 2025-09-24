@@ -11,9 +11,9 @@ tags:
 published: true
 ---
 
-![Gamplay du jeu](/images/blog/DodgyOrb/DodgyOrbGameplay.mp4)
-
 Bonjour, bonjour. Aujourd'hui, je vais vous présenter le projet **Dodgy Orb**.
+
+![Gamplay du jeu](/images/blog/DodgyOrb/DodgyOrbGameplay.mp4)
 
 Dodgy Orb est un jeu de puzzle inspiré du jeu de plateau **Tricky Bille** par la société [Tomy](https://fr.tomy.com/jouets/tomy-jeux). Le but du jeu est d'emmener la bille jusqu'à la fin du parcours le plus rapidement possible. Le jeu a été développé sur _Unity_.
 
@@ -42,7 +42,7 @@ L'interface du jeu est séparée en deux sections. La première est celle du _ga
 
 La seconde section, elle, est pour la gestion des paramètres. Elle contrôle le volume de l'application ainsi que les modes de jeu, _restart_ et pour quitter le jeu. Elle est quant à elle _extra diégétique_, il s'agit d'une interface _2D_ de type _HUD_ qui est dans un style minimaliste pour ne pas détourner l'attention.
 
-![Boutons du jeu et leur obstacle respectif](/images/blog/DodgyOrb/UI.webp)
+![Interface 2D du jeu](/images/blog/DodgyOrb/UI.webp)
 
 # Audio
 

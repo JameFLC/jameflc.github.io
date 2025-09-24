@@ -30,201 +30,204 @@ published: true
 
 </script>
 
-# Introduction
+Hello, hi. Today's subject will be about procedural generation, in particular generating flying islands. This is a common problem with a plethora of solutions, all of which have their pros and cons.
+Il s'agit d'un problème ayant un très grand nombre de solutions qui ont toutes leurs avantages et leurs inconvénients. I would like to discuss the one I used to create the game **Nimbus Nibbler**.
 
-Bonjour bonjour. Aujourd'hui, nous allons parler de la génération procédurale, plus particulièrement des îles volantes. Il s'agit d'un problème ayant un très grand nombre de solutions qui ont toutes leurs avantages et leurs inconvénients. J'aimerais aborder celle que j'ai utilisée pour la création du jeu **Nimbus Nibbler**.
+Don't worry, although the system is based on standard methods, I'm sure you'll find something useful here. My goal was to create a system that was easy to control, with simple algorithms, and that produced an organic look and feel.
 
-Pas d'inquiétude, bien que le système se base sur des méthodes classiques, vous trouverez surement quelque chose d'utile ici. Mon objectif était de créer un système facile à contrôler, utilisant des algorithmes simples et ayant un rendu organique.
+![Image of flying islands in Nimbus Nibbler](/images/blog/ProceduralIslands/FlyingIslands.webp)
 
-![Image des îles volantes dans Nimbus Nibbler](/images/blog/ProceduralIslands/FlyingIslands.webp)
+## How does it work?
 
-## Comment ça marche ?
+Well, broadly speaking, the system displays various flying islands on a grid, then generates suspension bridges to connect them. So far, nothing special, there are many generators that do this, particularly in roguelike games.
 
-Eh bien, dans les grandes lignes, le système fait apparaitre diverses îles volantes sur une grille, puis fait apparaitre des ponts suspendus pour les relier. Jusque-là, rien de bien spécial, on retrouve un grand nombre de générateurs qui font ça, particulièrement dans les _rogue-like_.
+### The popular algorithm
 
-### La méthode classique
+These systems generally operate in two main stages:
 
-Ces systèmes fonctionnent en général en deux grandes étapes :
+1. Place islands randomly on a grid
+2. Generate paths connecting them using an algorithm such as _A\*_
 
-1. Placer des cellules sur la grille de manière aléatoire
-2. Générer les chemins qui les relient à l'aide d'un algorithme comme _A\*_
-
-Voilà à quoi cela peux ressembler :
+Here is what it looks like generally:
 
 <AStarIslandsSlides/>
 
-Cependant, ces systèmes ont une mise en place complexe :
+However, these systems can be complex to use to get specific looks:
 
-- Avoir le contrôle sur la génération demande des outils et/ou des algorithmes avancés.
-- Créer une distribution organique et non répétitive peut s'avérer compliqué.
-- L'effet de grille est souvent très visible.
-- La génération des chemins nécessite des algorithmes de _path finding_ comme _A\*_
-- Empêcher les chemins de se chevaucher demande une attention particulière.
+- Controlling the generation can require advanced tools and/or algorithms.
+- Creating organic, non-repetitive distribution can be complicated.
+- The grid effect is often very visible.
+- Path generation requires pathfinding algorithms such as _A\*_.
+- Preventing paths from overlapping requires special attention.
 
-### La méthode simplifiée
+### A straightforward method
 
-Dans le cadre d'un petit projet, plutôt que de partir sur un système complexe qui sollicite beaucoup de travail pour enlever des _edge cases_. Est-ce qu'on pourrait passer outre certaines problématiques entièrement en utilisant un système beaucoup plus simple ?
+In the context of a small project, rather than starting with a complex system that requires a lot of work to remove edge cases, would it be possible to bypass certain issues entirely by using a much simpler system?
 
-Eh bien oui !
+Well, yes! That's why this article exists.
 
-Si on considère que chaque île ne peut être connectée à une île adjacente, on réduit grandement les problématiques liées à la génération des chemins. On peut garantir de ne pas avoir d'iles avec des ponts qui se chevauchent. On ne risque pas d'avoir des ponts trop longs pour le _gameplay_. On peut réduire la taille de la grille et augmenter la densité des îles pour réduire le nombre de cases et donc le nombre de calculs et leurs complexités.
+If we make the problem simpler by adding restrictions, there is a lot of complexity that can be discarded completely.
 
-### L'approche des textures procédurales
+For example, if we consider that each island can only be connected to an adjacent island, we greatly reduce the problems associated with path generation. We can guarantee that there will be no islands with overlapping bridges. There is no risk of having bridges that are too long for gameplay. We can reduce the number of cells in the grid and increase the density of the islands to reduce the number of squares and therefore the number of calculations and their complexity.
 
-Je me suis inspiré des méthodes utilisées pour créer des textures procédurales, utiliser du _bruit_ et des filtres. C'est également comme ça qu'on génère les terrains via des outils comme _World Builder_ ou _Gaia_ et même directement dans les jeux comme _Minecraft_.
+### The procedural textures approach
 
-J'ai donc considéré la grille de génération comme une image 2D contenant des pixels d'une valeur de `0.0` à `1.0` et dans laquelle j'ai appliqué des modifications pour définir l'apparition des îles. Cela m'a permis de prototyper le générateur visuellement dans un éditeur d'images _Affinity Photo_.
+I was inspired by the methods used to create procedural textures, using noise and filters. This is also how terrain is generated using tools such as _World Builder_ or _Gaia_, and even directly in games such as _Minecraft_.
 
-J'avais déjà une idée assez précise des spécifications que je voulais pour le générateur :
+I represented the generation grid as a 2D image containing pixels with values ranging from `0.0` to `1.0`, and applied modifications to define the appearance of the islands. This allowed me to visually prototype the generator in an image editor called _Affinity Photo_. I could add noise and filters visually to see the result in real-time.
 
-1. Avoir des îles dont l'apparition semble organique.
-2. Avoir une plus grande densité d'îles au centre de l'aire de jeu.
-3. Ne pas avoir de blocs très denses d'îles (par exemple `2x2`) toutes connectées.
-4. Avoir toujours une île au centre de la grille pour _spawner_ le _player controller_.
-5. Avoir un nombre d'îles orphelines assez réduit\*.
+I already had a fairly clear idea of the specifications I wanted for the generator:
 
-Et comme par hasard, cette hiérarchie de besoins s'adapte facilement en une suite de _layers_ dans une image et donc par extension d'étapes de générations.
+1. Have islands that appear organic.
 
-#### Apparition organique
+2. Have a higher density of islands in the center of the play area.
 
-Le générateur commence par créer une grille/image de taille voulue et applique un filtre de _bruit_ dessus. Pour cela, j'ai créé un petit utilitaire qui utilise la librairie mathématique d'_Unity_ pour échantillonner du _bruit de perlin_, du _bruit bleu_ ou du _bruit cellulaire_. Le choix du type de _bruit_ est donné à l'utilisateur pour expérimenter.
+3. Avoid having very dense blocks of islands (e.g., 2x2) that are all connected.
 
-<ImageLine alt="Textures de bruit : perlin noise, blue noise, celular noise" images={noiseLine}/>
+4. Always have an island in the center of the grid to spawn the player controller.
+
+5. Keep the number of orphan islands fairly low.
+
+And, as luck would have it, this hierarchy of requirements can easily map to a series of layers in an image and, by extension, into stages of generation.
+
+#### Organic spawn
+
+The generator starts by creating a grid/image of the desired size and applies a noise filter to it. To do this, I created a small utility that uses _Unity_'s math library to sample _Perlin noise_, _blue noise_, or _cellular noise_. The user can choose the type of noise to experiment with.
+
+<ImageLine alt="Noise textures: Perlin noise, blue noise, cellular noise" images={noiseLine}/>
 
 Voici ce que cela donne dans le jeu.
 
 <IslandSlides rangeMin={1} rangeMax={2}/>
 
-À la fin de la génération, les cases ayant une valeur de plus de `0.5` feront apparaitre des îles.
+At the end of the generation, cells with a value greater than `0.5` will cause islands to appear.
 
-#### Densité variable
+#### Variable density
 
-Pour avoir une densité d'îles supérieures au centre de la grille. Je crée un gradient circulaire centré sur la grille qui est à une valeur de `1.0` au centre et une valeur de `0.0` à l'extérieur. Il suffit ensuite de multiplier le bruit par le gradient pour avoir une densité plus forte au centre du niveau.
+To have a higher density of islands in the center of the grid, I create a circular gradient centered on the grid that has a value of `1.0` in the center and a value of `0.0` on the outside. Then, I simply multiply the noise by the gradient to have a higher density in the center of the level.
 
 <IslandSlides rangeMin={2} rangeMax={4}/>
 
-En interne, le gradient est généré en utilisant une fonction de distribution gaussienne. On peut contrôler sa taille et si elle est douce ou abrupte pour contrôler la densité des îles.
+Internally, the gradient is generated using a Gaussian distribution function. Its size and whether it is smooth or abrupt can be controlled to regulate the density of the islands.
 
-#### Pas de zones trop denses
+#### Preventing having all cells with an island
 
-Le centre de la grille a une grande chance de faire apparaitre des îles. Pour éviter d'avoir des zones pleines, j'ai utilisé un masque qui fait des "trous" dans la grille. Le masque en lui-même est une forme hexagonale qui permet de réduire l'effet de grille en plus de régler les problèmes de densité.
+The center of the grid has a high probability of spawning islands. To avoid having areas full of islands, I used a mask that creates “holes” in the grid. The mask itself is a hexagonal shape that reduces the grid effect and solves density issues.
 
 <IslandSlides rangeMin={4} rangeMax={6}/>
 
-#### Île au centre
+#### Center Island
 
-`image[centre][centre] = 1.0f;` 👀
+`image[center][center] = 1.0f;` 👀
 
-_Bon, pas grand chose à dire là dessus..._
+_Well, not much to say about that..._
 
-#### Seuil d'apparition des îles
+#### Island spawn threshold
 
-Maintenant que la _texture_ d'apparition des îles a été créée et filtrée, il ne reste plus qu'à effectuer un seuillage. Toutes les cellules ayant une valeur supérieure ou égale à `0.5` vont faire apparaitre une île volante.
+Now that the spawn _texture_ of the islands has been created and filtered, all that remains is to perform _thresholding_. All cells with a value greater than or equal to `0.5` will spawn a flying island. This generates a _binary mask_ to spawn the islands.
 
 <IslandSlides rangeMin={7} rangeMax={9}/>
 
-#### Réduire le nombre d'îles orphelines
+#### Reducing the number of orphan islands
 
-Avec la méthode actuelle et la taille des grilles en jeu, je n'ai pas eux, de problème d'un grand nombre d'îles orphelines (qui ne sont pas raccordées au centre). J'ai testé avec des grilles très larges et dans ces situation le problème arrive plus souvent.
+This technique has one issue that could be important for some. Since it generates islandes based on masks, it can generate multiple groups of connected islands and even islands that are not connected to any other one, i will call them **orphan islands**.
 
-Dans le cas où j'aurais eu besoin d'utiliser des grilles très larges. J'aurais eu plusieurs approches possibles pour régler ce problème, par exemple :
+With the current method and grid size, I haven't had many orphan islands, so it was not really an issue for me. I tested with very large grids, and in these situations the problem occurs more often.
 
-- Garder uniquement le groupement d'îles central à l'aide d'un algorithme de type _flood fill_
-- Forcer l'apparition de nouvelles îles dans les zones vides qui peuvent reconnecter plusieurs groupes d'îles.
-- Forcer la génération de ponts entre deux groupes d'îles.
+In the event that I needed to use very large grids, I would have had several possible approaches to solve this problem, for example:
 
-# Génération et placement de chaque île
+- Keep only the central group of islands using a flood fill algorithm.
 
-C'est bon, le système a choisi quelles cases de la grille va faire apparaitre des îles. Il reste maintenant à gérer l'apparition de ces îles.
+- Force the appearance of new islands in empty areas that can reconnect several groups of islands.
 
-Les _spawners_ de groupes d'îles ont une liste pondérée des types d'îles à faire apparaitre et tire au sort le type pour chaque case de la grille.
+- Force the generation of bridges between two groups of islands.
 
-## Îles semi-procédurales
+# Generation and placement of each island
 
-Pour ajouter de la variété dans la génération, chaque île contient elle-même des _spawners_ de décorations. Chaque _spawner_ à une liste pondérée de _prefabs_ qu'il peut faire apparaitre
+Ok, we are getting somewhere, the system has chosen which cells on the grid will spawn islands. Now we just need to manage the appearance of these islands.
 
-Ici, un _spawner_ contient trois décorations différentes. En appuyant sur le bouton, vous pouvez lancer et relancer un processus de génération.
+Island spawners have a weighted list of island types to spawn and randomly select the type for each grid cell.
+
+## Semi procedural islands
+
+There are 4 types of islands, 2 natural islands and 2 fortified islands. To add variety to the generation, each island itself contains decoration _spawners_. Each _spawner_ has a weighted list of prefabs that it can spawn.
+
+Here, a _spawner_ contains three different decorations. By pressing the button, you can start and restart a generation process.
 <IslandSlotAnim/>
 
-Chaque décoration peut contenir d'autres spawners. Par exemple une colone peut faire apparaitre un toit, un toit peut faire apparaitre une tour, une tour peut faire apparaitre une hélice.
-Quand un _spawner_ fait apparaitre une décoration il vas vérifier si elle contient d'autres _spawners_ et les activer. Le système continue jusqu'à ce que touts les _spawners_ aient été activés.
+Each decoration can contain other _spawners_. For example, a column can spawn a roof -> a roof can spawn a tower -> a tower can spawn a propeller.
+When a spawner spawns a decoration, it checks whether it contains other spawners and activates them. The system continues until all spawners have been activated.
 
-==widget slider avec un spawn récursif==
+This system allows for a large number of variations per island type while keeping the number of bespoke assets limited.
 
-Ce système permet d'obtenir un grand nombre de variations par type d'îles tout en gardant un nombre limité de décorations de bases.
+## Shifting islands in their cells
 
-## Déplacement des îles dans leurs cellules
-
-Maintenant que l'on a un grand nombre d'îles différentes, la problématique de répétition est presque réglée. Néanmoins, il reste le problème du placement des îles. Comme chaque île est placée sur les cases d'une grille carrée, il est très simple de voir cette structure.
+Now that we have a large number of different islands, the issue of repetition is almost resolved. However, the problem of island placement remains. Since each island is placed on the squares of a grid, it is very easy to see this structure.
 
 <IslandSlides rangeMin={9} rangeMax={9}/>
 
-On retrouve cette problématique dans la création de textures répétitives. Le cerveau humain est très bon pour discerner les _patterns_ répétitif, si on applique une texture en boucle, il est très facile de repérer la répétition.
-Et on peut utiliser une des solutions qui marche pour les textures : ajouter un décalage à chaque répétition.
+This problem also arises when creating tilling textures. The human brain is very good at recognizing repetitive patterns, so if you apply a tilling texture, it is very easy to spot the repetition : One solution that works for textures is to **shift it** each repetition.
 
-<ImageLine alt="Une image est répétée simplement et une avec de la variation de rotation dans chaque répétition" images={imageTilingSlide}/>
+<ImageLine alt="One image that is repeated simply and one with rotation variation for each repetition." images={imageTilingSlide}/>
 
-Dans notre cas, en déplacent chaque île dans sa case de grille ainsi que verticalement, on peut faire disparaitre presque complètement la structure de la grille.
+In our case, by moving randomly each island within its grid cell as well as vertically, we can make the grid structure disappear almost completely.
 
 <IslandSlides rangeMin={9} rangeMax={11}/>
 
-Voilà ce que cela donne en jeu :
+Here's how it looks in the game:
 
 <ImageLine alt="Deux groupements d'îles générés de tailles différentes" images={islandsGroupsLine}/>
 
 ### Algorithme
 
-En regardant cette technique de plus près, on peut se rendre compte qu'elle ressemble beaucoup à un algorithme utilisé pour créer des textures de bruit. Le _bruit cellulaire_ ou _voronoi noise_. Cet algorithme choisit des points aléatoirement placés dans chaque cellule d'une grille et calcule pour chaque pixel la distance au point le plus proche.
+If you look at this technique more closely, you will see that it is very similar to an algorithm used to create noise textures: _cellular noise_ or _Voronoi noise_. This algorithm randomly selects points placed in each cell of a grid and calculates the distance to the nearest point for each pixel.
 
 <VoronoiSlider/>
 
-Oui on peut faire de cellules de voronoi nativement en _HTML_ et _CSS_. C'est fou ce qu'on peut faire avec des gradients et des _blend modes_.
+Yes, you can create _Voronoi_ noise natively in _HTML_ and _CSS_ (no canvas or shader trickery). It's wonderful what you can do with gradients and blend modes.
 
-# Génération des ponts
+# Bridge generation
 
-On à maintenant plusieurs îles qui apparaissent dans le vide, il ne reste plus qu'à les connecter entre elles !
-La première étape est de choisir quels ponts vont apparaitre.
+We now have several islands appearing in the void, all that remains is to connect them together!
+The first step is to choose which bridges will appear.
 
-## Choix des ponts
+## Bridges spawn selection
 
-Pour avoir un nombre de ponts correct par île, j'ai mis en place un choix en deux étapes :
+To ensure an appropriate number of bridges per island, I implemented a two-step selection process:
 
-1. En premier, chaque île vérifie si elle est voisine à une autre île dans les directions cardinales
-2. Si ce n'est pas le cas, elle vérifie si elle est voisine d'autres îles dans les diagonales.
-   Cela permet d'avoir un nombre de ponts pas trop élevé tout en réduisant grandement le nombre d'îles orphelines.
+1. First, each island checks whether it is adjacent to another island in the cardinal directions.
+2. If this is not the case, it checks whether it is adjacent to other islands in the diagonals.
 
-![Les deux étapes de vérification des îles voisines](/images/blog/ProceduralIslands/IslandsChose.svg)
+This allows for a reasonable number of bridges while greatly reducing the number of orphan islands.
 
-À noter qu'en réalité, les îles ne sont responsables de leur connections que pour la moitié des directions, par exemple, **Nord**, **Nord-Est**, **Est** et **Sud-Est**. Et cela, pour la détection d'îles et pour la génération des ponts. Les connexions dans les autres directions sont gérées par les îles voisines.
+![Diagram of the two stages of verification for neighboring islands](/images/blog/ProceduralIslands/IslandsChose.svg)
 
-![Exemple de gestion des connections dans un groupe d'îles, les flêches foncées font spawner un pont](/images/blog/ProceduralIslands/IslandsConnections.svg)
+Note that in reality, islands are only responsible for their connections in half of the directions, for example, **North**, **Northeast**, **East**, and **Southeast**. This applies to island detection and bridge generation. Connections in other directions are managed by neighboring islands.
 
-## Génération des ponts
+![Example of connection management in a group of islands; the dark arrows represent a spawned bridge.](/images/blog/ProceduralIslands/IslandsConnections.svg)
 
-### Système de points de connexions
+## Bridges spawn
 
-Chaque île contient 8 points de connexions possibles prédéfinie. Ces points de connexion sont un _prefab_ qui a deux modes :
+### Handling bridges and islandṡ connections
 
-- Mode barrière : Il fait apparaitre un obstacle pour ne pas tomber de l'île comme une barrière ou un mur.
-- Mode connexion : Il fait apparaitre un point de passage pour le pont qui peut être orienté dans la direction du point de connexion de l'autre île.
+Each island contains 8 predefined possible connection points. These connection points are a prefab that has two modes:
 
-==schéma cool==
+- Wall mode: It spawns an obstacle to prevent falling off the island, such as a barrier or wall.
+- Connection mode: It spawns a transition point for the bridge, which can be oriented in the direction of the connection point on the other island.
 
-### Génération de chemins
+### Path generation
 
-Pour la génération des ponts suspendus, j'ai utilisé le _package Splines_ d'_Unity_. Il permet de générer des courbes _2D_ ou _3D_ dans l'espace d'une scène et de faire apparaitre des objets le long de ces courbes.
+To generate the suspension bridges, I used _Unity_'s _spline package_. It allows you to generate 2D or 3D curves the scene and to spawn objects along these curves.
 
-Pour garder la génération des ponts la plus simple, j'ai effectué la majorité des calculs de courbe en _2D_. Je projette d'abord les points de connexion des ponts sur un plan _2D_. Je génère ensuite une _courbe 2D_ qui ressemble à un pont suspendu. Puis j'oriente cette courbe dans la direction de l'autre île.
-Enfin, il faut faire apparaitre des modules de ponts le long de la courbe, ce qui est géré directement par le _package_.
+To keep the bridge generation as simple as possible, I performed most of the curve calculations in 2D. First, I project the bridge connection points onto a 2D plane. I then generate a 2D curve that resembles a suspension bridge. Next, I rotate this curve in the direction of the other island.
+Finally, bridge modules are spawned along the curve, which is handled directly by the package.
 
-# Résultats
+# Results
 
-Voici un dernier widget pour faire le topo des étapes de création des îles.
+Here is one last widget to summarize the steps involved in creating islands.
 
 <IslandSlides/>
 
-Ce projet de génération procédural était pour moi un bon moyen d'expérimenter avec différentes méthodes d'effectuer de la génération procédurale. L'objectif était de réaliser rapidement un générateur d'îles volantes en utilisant des méthodes inspirées de la génération de textures.
+This project was a good way for me to experiment with different methods of procedural generation. The goal was to quickly create a flying island generator using methods inspired by texture generation. I was pleasantly surprised by the result of these simple steps.
 
-Si jouer au jeu vous intéresse, vous pouvez retrouver **Nimbus Nibler** sur itch.io
-
-Merci d'avoir lu jusqu'ici, j'espère que cet article a été intéressant à lire, s'il vous à plus n'hésitez pas à le partager ou me le faire savoir ce que vous en pensez !
+If you want to try **Nimbus Nibler** you can find it on itch.io

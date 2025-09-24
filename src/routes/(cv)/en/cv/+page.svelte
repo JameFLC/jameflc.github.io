@@ -1,11 +1,28 @@
 <script>
-	import StrongPageLink from '$lib/components/StrongPageLink.svelte';
 	import Profile from '$lib/components/cv/Profile.svelte';
 	import SectionTitle from '$lib/components/SectionTitle.svelte';
 	import ContactList from '$lib/components/cv/ContactList.svelte';
 	import ExperienceTimeline from '$lib/components/cv/ExperienceTimeline.svelte';
 	import SkillBadge from '$lib/components/cv/SkillBadge.svelte';
+	import { websiteURL } from '$lib';
+	import { page } from '$app/state';
+	import IconLinkThin from '$lib/components/icons/IconLinkThin.svelte';
 </script>
+
+<svelte:head>
+	<title>Resume Jame FLC</title>
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="CV" />
+	<meta property="og:description" content="Jame Floc'h Le Carour personal Website" />
+	<meta property="og:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content={websiteURL} />
+	<meta property="twitter:url" content={websiteURL + page.url.pathname} />
+	<meta name="twitter:title" content="CV" />
+	<meta name="twitter:description" content="Jame Floc'h Le Carour personal Website" />
+	<meta name="twitter:image" content={websiteURL + '/images/thumbnails/Home.webp'} />
+</svelte:head>
 
 <section>
 	<SectionTitle>Profile</SectionTitle>
@@ -18,10 +35,20 @@
 		feel good to use being games, apps or tools.
 		<br />
 		<br />
-		I have an extensive knowledge of light transport technologies for realtime applications.
+		I have an extensive knowledge of light transport technologies for realtime applications,
+		<span class="text-bold">technical art, shaders, 3D modeling, and real-time 3D rendering.</span>
 	</Profile>
 
-	<StrongPageLink href="/cv">Get Resume PDF</StrongPageLink>
+	<div class="x-centerer">
+		<a
+			class="strong-page-link"
+			href="/documents/cv/fr/CV Jame Floc'h Le Carour - Ingénieur.pdf"
+			download
+		>
+			<span>Télécharger le CV</span>
+			<IconLinkThin style="--size: 1ch" />
+		</a>
+	</div>
 </section>
 <section>
 	<SectionTitle>Contact Informations</SectionTitle>
@@ -36,24 +63,33 @@
 			{
 				Place: 'Virtuos Games',
 				Role: 'Generalist Game Software Engineer ',
-				Description:
-					'I worked on the creation of a suite of new tools to improve their testing workflows, I worked on both the UI and backend of this solution. I also worked on the complete visual refresh of their engine tools, I participated in the creation of our workflows documents and made tools to test our new visuals upgrades',
+				Description: [
+					'Developed menus and 3D gizmos with Unreal Engine 5 in the game Splitgate 2. Implemented cross-platform interfaces for controllers ensuring certification on Xbox and PS5.',
+					'Developed a performance benchmark plugin for Unreal Engine integrated into Marvel 1943: Rise of Hydra and The Elder Scrolls Oblivion Remaster. Created the plugin and 3D and 2D tools. Managed data visualization. Project presented at GDC.',
+					'Developed an internal QT application for managing assets across the Virtuos group in collaboration with the R&D teams in Singapore. Created the asset upload system. The application made it possible to gather and globalize more than 150 terabytes of data.',
+					"Updated the WPF interfaces of a proprietary game engine. Created an application for the engine's widget gallery. Added a new dark/light theme to all engine applications. Updated the Avalon Doc library.",
+					'Updated Btree memory allocators to replace RedBlackTree in a proprietary C++ engine for an AAA game.'
+				],
 				Begin: new Date('2022-10'),
 				End: 'Now'
 			},
 			{
 				Place: 'Black Shamrock',
 				Role: 'Intern Game Tooling Engineer',
-				Description:
-					'I worked on different pipeline and asset management tools for an Unreal Engine AAA production in which I used a lot of the engine subsystems to automate some tedious tasks and improved QA team workflows',
+				Description: [
+					'Creation of an automation system, metadata linking, configurations, and 3D assets for a procedural generation system in Unreal Engine 4. The system eliminated these manual tasks.',
+					'Creation of a procedural generation debug plugin that reduced iteration time by a factor of 10.'
+				],
 				Begin: new Date('2024-06'),
 				End: new Date('2024-08')
 			},
 			{
 				Place: 'Lapsco Laboratory',
 				Role: 'VR Developper',
-				Description:
-					'Developed a VR simulator with the aim of studying the behavior of people during an emergency. evacuation. I was in charge the programming of the gameplay, VR, UI and systems. I also did the asset creation, level design and testing.',
+				Description: [
+					'Creation of a VR fire simulator for behavioral studies in hazardous environments, with a focus on fire safety.',
+					'As the project lead, I was responsible for VR programming, gameplay programming, interfaces and subsystems, as well as testing methods.'
+				],
 				Begin: new Date('2022-04'),
 				End: new Date('2024-07')
 			},
@@ -61,8 +97,9 @@
 				Place: "Coop'art",
 				Role: 'Hologram Developper',
 				Description: [
-					'Developed a real time holographic projection system for live shows. Integrated Xsens motion capture API to animate virtual characters with people movements.',
-					'Added DMX support to control the projection parameters with physical controllers. Created a Unity plugin to export prefabs directly into the running simulation.'
+					'Responsible for creating a real-time holographic projection system on Unity, graphics programming, and tools.',
+					'Developed real-time motion capture support for Xsens suits.',
+					'Developed software control via an external physical interface using the Art-Net protocol.'
 				],
 				Begin: new Date('2024-06'),
 				End: new Date('2024-08')
@@ -95,41 +132,47 @@
 <section>
 	<SectionTitle>Programming</SectionTitle>
 
-	<h3>Frameworks</h3>
+	<h3>Engines</h3>
 	<br />
-	<SkillBadge name="Unreal Engine" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Unity Engine" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Godot Engine" src="/images/skills/SkillPlaceholder.webp" />
+	<SkillBadge name="Unreal Engine" src="/images/skills/Unreal.webp" />
+	<SkillBadge name="Unity Engine" src="/images/skills/Unity.webp" />
+	<SkillBadge name="Godot Engine" src="/images/skills/Godot.webp" />
+	<SkillBadge name="Custom Engines" src="/images/skills/SkillPlaceholder.webp" />
 
-	<SkillBadge name="WPF" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Blazor" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="UWP/WinUI 3" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="QT" src="/images/skills/SkillPlaceholder.webp" />
+	<h3>UI Frameworks</h3>
+	<SkillBadge name="WinUI / WPF" src="/images/skills/WinUI.webp" />
+	<SkillBadge name="QT" src="/images/skills/QT.webp" />
+	<SkillBadge name="Svelte" src="/images/skills/Svelte.webp" />
 	<SkillBadge name="IMGUI" src="/images/skills/SkillPlaceholder.webp" />
 
 	<h3>Languages</h3>
 	<br />
-	<SkillBadge name="C#" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="C++" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Python" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="GLSL" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="HLSL" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Cuda" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="TypeScript / JS" src="/images/skills/SkillPlaceholder.webp" />
+	<SkillBadge name="C++" src="/images/skills/CPP.webp" />
+	<SkillBadge name="C#" src="/images/skills/CSharp.webp" />
+	<SkillBadge name="Python" src="/images/skills/Python.webp" />
+	<SkillBadge name="HSLS / GLSL" src="/images/skills/Shader.webp" />
+	<SkillBadge name="TypeScript / JS" src="/images/skills/TS.webp" />
 </section>
 <section>
 	<SectionTitle>Dev Tools</SectionTitle>
-	<SkillBadge name="Git" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Perforce P4V" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Jetbrains Rider" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Visual Studio" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Visual Studio Code" src="/images/skills/SkillPlaceholder.webp" />
+	<SkillBadge name="Git" src="/images/skills/Git.webp" />
+	<SkillBadge name="Perforce P4V" src="/images/skills/P4V.webp" />
+	<SkillBadge name="Jetbrains Rider" src="/images/skills/Rider.webp" />
+	<SkillBadge name="Visual Studio" src="/images/skills/VisualStudio.webp" />
+	<SkillBadge name="Visual Studio Code" src="/images/skills/VisualStudioCode.webp" />
 </section>
 <section>
-	<SectionTitle>Art and Design Tools</SectionTitle>\
-	<SkillBadge name="Blender" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Affinity Designer" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Affinity Photo" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Photoshop" src="/images/skills/SkillPlaceholder.webp" />
-	<SkillBadge name="Davinci Resolve" src="/images/skills/SkillPlaceholder.webp" />
+	<SectionTitle>Art and Design Tools</SectionTitle>
+	<SkillBadge name="Blender" src="/images/skills/Blender.webp" />
+	<SkillBadge name="Affinity Designer" src="/images/skills/AffinityDesigner.webp" />
+	<SkillBadge name="Affinity Photo" src="/images/skills/AffinityPhoto.webp" />
+	<SkillBadge name="Photoshop" src="/images/skills/Photoshop.webp" />
+	<SkillBadge name="Davinci Resolve" src="/images/skills/DavinciResolve.webp" />
 </section>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

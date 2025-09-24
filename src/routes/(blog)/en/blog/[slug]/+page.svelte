@@ -25,4 +25,9 @@
 	<BlogHeader PostData={data.meta} />
 
 	<data.content />
+
+	<br />
+	<br />
+	Thank you for reading this far. I hope you found this article interesting. If you did, please feel
+	free to share it or let me know what you think!
 </article>

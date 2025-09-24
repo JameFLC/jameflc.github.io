@@ -35,6 +35,16 @@
 		If you like what you find here then feel free to <Link href="/cv">reach out</Link> 😉
 	</p>
 
+	<ImageLine
+		images={[
+			'/images/gallery/ProceduralGen.webp',
+			'/images/gallery/StrikeAndSorcery.webp',
+			'/images/gallery/LowPolyTemple.webp'
+		]}
+		alt=""
+		aspectRatio={16 / 9}
+	/>
+
 	<section>
 		<SectionTitle href="/">Latest Projects</SectionTitle>
 		<ul
@@ -50,44 +60,12 @@
 
 	<ImageLine
 		images={[
-			'https://picsum.photos/id/112/320/150',
-			'https://picsum.photos/id/37/320/150',
-			'https://picsum.photos/id/89/320/150'
+			'/images/gallery/PrecisionDonut Flower.webp',
+			'/images/gallery/GlitchedText.webp',
+			'/images/gallery/PrecisionDonutSunFlower.webp'
 		]}
 		alt=""
-		aspectRatio={22 / 9}
+		aspectRatio={21 / 9}
 	/>
-
-	<section>
-		<SectionTitle href="/">Latest Articles</SectionTitle>
-		<ul class="auto-grid clean-list" style="gap: var(--rl); --element-min-width: 22rem">
-			{#each articles as post}
-				<PostPreviewCard {post} />
-			{/each}
-		</ul>
-		<PageLink href="/">More Articles</PageLink>
-	</section>
-
-	<ImageLine
-		images={[
-			'https://picsum.photos/id/358/320/150',
-			'https://picsum.photos/id/400/320/150',
-			'https://picsum.photos/id/121/320/150'
-		]}
-		alt=""
-		aspectRatio={22 / 9}
-	/>
-
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
+	<div class="footer-padding"></div>
 </div>

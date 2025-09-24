@@ -30,8 +30,6 @@ published: true
 
 </script>
 
-# Introduction
-
 Bonjour bonjour. Aujourd'hui, nous allons parler de la génération procédurale, plus particulièrement des îles volantes. Il s'agit d'un problème ayant un très grand nombre de solutions qui ont toutes leurs avantages et leurs inconvénients. J'aimerais aborder celle que j'ai utilisée pour la création du jeu **Nimbus Nibbler**.
 
 Pas d'inquiétude, bien que le système se base sur des méthodes classiques, vous trouverez surement quelque chose d'utile ici. Mon objectif était de créer un système facile à contrôler, utilisant des algorithmes simples et ayant un rendu organique.
@@ -67,7 +65,7 @@ Dans le cadre d'un petit projet, plutôt que de partir sur un système complexe 
 
 Eh bien oui !
 
-Si on considère que chaque île ne peut être connectée à une île adjacente, on réduit grandement les problématiques liées à la génération des chemins. On peut garantir de ne pas avoir d'iles avec des ponts qui se chevauchent. On ne risque pas d'avoir des ponts trop longs pour le _gameplay_. On peut réduire la taille de la grille et augmenter la densité des îles pour réduire le nombre de cases et donc le nombre de calculs et leurs complexités.
+Si on considère que chaque île ne peut être connectée qu'à une île adjacente, on réduit grandement les problématiques liées à la génération des chemins. On peut garantir de ne pas avoir d'iles avec des ponts qui se chevauchent. On ne risque pas d'avoir des ponts trop longs pour le _gameplay_. On peut réduire la taille de la grille et augmenter la densité des îles pour réduire le nombre de cases et donc le nombre de calculs et leurs complexités.
 
 ### L'approche des textures procédurales
 
@@ -149,8 +147,6 @@ Ici, un _spawner_ contient trois décorations différentes. En appuyant sur le b
 Chaque décoration peut contenir d'autres spawners. Par exemple une colone peut faire apparaitre un toit, un toit peut faire apparaitre une tour, une tour peut faire apparaitre une hélice.
 Quand un _spawner_ fait apparaitre une décoration il vas vérifier si elle contient d'autres _spawners_ et les activer. Le système continue jusqu'à ce que touts les _spawners_ aient été activés.
 
-==widget slider avec un spawn récursif==
-
 Ce système permet d'obtenir un grand nombre de variations par type d'îles tout en gardant un nombre limité de décorations de bases.
 
 ## Déplacement des îles dans leurs cellules
@@ -164,7 +160,7 @@ Et on peut utiliser une des solutions qui marche pour les textures : ajouter un 
 
 <ImageLine alt="Une image est répétée simplement et une avec de la variation de rotation dans chaque répétition" images={imageTilingSlide}/>
 
-Dans notre cas, en déplacent chaque île dans sa case de grille ainsi que verticalement, on peut faire disparaitre presque complètement la structure de la grille.
+Dans notre cas, en déplacent aléatoirement chaque île à l'intérieur de sa case de grille ainsi que verticalement, on peut faire disparaitre presque complètement la structure de la grille.
 
 <IslandSlides rangeMin={9} rangeMax={11}/>
 
@@ -191,7 +187,8 @@ Pour avoir un nombre de ponts correct par île, j'ai mis en place un choix en de
 
 1. En premier, chaque île vérifie si elle est voisine à une autre île dans les directions cardinales
 2. Si ce n'est pas le cas, elle vérifie si elle est voisine d'autres îles dans les diagonales.
-   Cela permet d'avoir un nombre de ponts pas trop élevé tout en réduisant grandement le nombre d'îles orphelines.
+
+Cela permet d'avoir un nombre de ponts pas trop élevé tout en réduisant grandement le nombre d'îles orphelines.
 
 ![Les deux étapes de vérification des îles voisines](/images/blog/ProceduralIslands/IslandsChose.svg)
 
@@ -208,8 +205,6 @@ Chaque île contient 8 points de connexions possibles prédéfinie. Ces points d
 - Mode barrière : Il fait apparaitre un obstacle pour ne pas tomber de l'île comme une barrière ou un mur.
 - Mode connexion : Il fait apparaitre un point de passage pour le pont qui peut être orienté dans la direction du point de connexion de l'autre île.
 
-==schéma cool==
-
 ### Génération de chemins
 
 Pour la génération des ponts suspendus, j'ai utilisé le _package Splines_ d'_Unity_. Il permet de générer des courbes _2D_ ou _3D_ dans l'espace d'une scène et de faire apparaitre des objets le long de ces courbes.
@@ -223,8 +218,6 @@ Voici un dernier widget pour faire le topo des étapes de création des îles.
 
 <IslandSlides/>
 
-Ce projet de génération procédural était pour moi un bon moyen d'expérimenter avec différentes méthodes d'effectuer de la génération procédurale. L'objectif était de réaliser rapidement un générateur d'îles volantes en utilisant des méthodes inspirées de la génération de textures.
+Ce projet de génération procédurale était pour moi un bon moyen d'expérimenter avec différentes méthodes d'effectuer de la génération procédurale. L'objectif était de réaliser rapidement un générateur d'îles volantes en utilisant des méthodes inspirées de la génération de textures.
 
 Si jouer au jeu vous intéresse, vous pouvez retrouver **Nimbus Nibler** sur itch.io
-
-Merci d'avoir lu jusqu'ici, j'espère que cet article a été intéressant à lire, s'il vous à plus n'hésitez pas à le partager ou me le faire savoir ce que vous en pensez !

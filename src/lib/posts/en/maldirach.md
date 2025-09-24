@@ -1,8 +1,8 @@
 ---
-title: '"Across the Maldirach" the a11y adventure'
+title: 'Across the Maldirach" the a11y adventure'
 description: Making an accessible collaborative puzzle-adventure game that replace sight with touch and sounds
 thumbnail: '/images/thumbnails/Maldirach.webp'
-date: '2025-08-02'
+date: '2025-05-02'
 type: project
 tags:
   - unity
@@ -12,82 +12,86 @@ published: true
 ---
 
 <script>
-  import ImageLine from "../../components/blog/layout/ImageLine.svelte"
+  import ImageLine from "../../components/blog/layout/ImageLine.svelte"
 
-  const illustrations1 = [ '/images/blog/Maldirach/Danger_Noodle.webp', '/images/blog/Maldirach/Bridge_white.webp'];
+  const illustrations1 = [ '/images/blog/Maldirach/Danger_Noodle.webp', '/images/blog/Maldirach/Bridge_white.webp'];
 
-    const illustrations2 = [ '/images/blog/Maldirach/Forteresse_white.webp', '/images/blog/Maldirach/Ghosts_white.webp'];
+    const illustrations2 = [ '/images/blog/Maldirach/Forteresse_white.webp', '/images/blog/Maldirach/Ghosts_white.webp'];
 </script>
 
 # Introduction
 
-Bonjour bonjour. Aujourd'hui je vais vous présenter le projet **À travers le Maldirach**. Il s'agit d'un jeu de plateau d'énigme-aventure collaboratif qui demande à deux joueurs de collaborer pour naviguer dans un monde dangereux.
+Hello, hi. Today I will show you the project **Across the Maldirach**.
+A collaborative puzzle-adventure board game that asks two players to work together to navigate a dangerous world.
 
-![Illustrations des marrais du Maldirarch illustré par Baptiste Lalue](/images/blog/Maldirach/Marrais_white.webp)
+![Illustrations of the Maldirarch swamps illustrated by Baptiste Lalue](/images/blog/Maldirach/Marrais_white.webp)
 
-- Un **voyageur liminal** est perdu dans le **Maldirach**, une terrible forêt entre l'ombre et le rêve que nulle lumière ne peut atteindre ! Il devra utiliser son sens du toucher pour analyser son environnement et déplacer son pion de lieu en lieu pour se sauver de la forêt.
-- Son ami, resté dans notre monde, est un **érudit** détenteur d'anciens textes sur le Maldirach. Il doit analyser ces grimoires, échanger avec l'autre joueur et tracer des parallèles entre les textes cryptiques et la géographie de la forêt, à l'aide de son coéquipier perdu !
+- A **liminal traveler** is lost in the **Maldirach**, a terrible forest between shadow and dream that no light can reach! They must use his sense of touch to analyze his surroundings and move his pawn from place to place to escape the forest.
+- Their friend, who remained in our world, is a **bookman** who possesses ancient texts about Maldirach. They must analyze these grimoires, exchange with the other player, and draw parallels between the cryptic texts and the geography of the forest, with the help of their lost teammate!
 
-Ce jeu a été créé dans le contexte d'un projet d'une semaine portant sur les questions d'accessibilité. L'objectif était donc de créer une expérience fonctionnant aussi bien pour une personne non ou malvoyante que pour une personne voyante.
+This game was created as part of a week-long project exploring accessibility issues. The goal was to create an experience that would work equally well for a blind or visually impaired person as it would for a sighted person.
 
-![Photographie du plateau de Maldirach](/images/blog/Maldirach/GameBoard.webp)
+![Photograph of the Maldirach plateau](/images/blog/Maldirach/GameBoard.webp)
 
-# Contexte du projet
+# The project
 
-Ce jeu a été réalisé dans le cadre du workshop "inclus et connecté" au CNAM-ENJMIN en septembre 2023. Nous sommes 6 à avoir travaillé sur ce projet :
+This game was created as part of the "included and connected" workshop at CNAM-ENJMIN in September 2023. We were 6 on this project:
 
-- fae (Game Design, doublage, concept et fabrication de la carte)
-- Paul CORET (Sound Design)
-- Baptiste LALUE (Graphismes, doublage, concept et fabrication de la carte)
-- Jame FLOC'H LE CAROUR (Programmation, montage du circuit, doublage)
-- Wilfried FOTSO NDEFO (Programmation, montage du circuit, doublage)
-- Eris DESQUILBET (Gestion de projet, concept et fabrication de la carte)
+- Fae : Game design, voice acting, concept and construction of the board
+- Paul CORET : Sound design
+- Baptiste LALUE : Illustrations, voice acting, concept and construction of the board
+- Jame FLOC'H LE CAROUR : Programming, electronics, voice acting
+- Wilfried FOTSO NDEFO : Programming, electronics, voic acting
+- Eris DESQUILBET : Project management, concept and construction of the board
 
-En plus des tâches principales assignées, chaque personne a participé à l'idéation du concept et à la création et aux discussions concernant les problématiques d'accessibilité du projet.
+In addition to the main tasks assigned, each person participated in the concept ideation and the creation and discussions regarding the accessibility issues of the project.
 
-<ImageLine alt="Illustrations du guide du Maldirarch illustré par Baptiste Lalue" images={illustrations1} aspectRatio={16/10}/>
+<ImageLine alt="Illustrations from the Maldirarch guide illustrated by Baptiste Lalue" images={illustrations1} aspectRatio={16/10}/>
 
-# Fonctionnement technique
+# How it works
 
-Lors d'une partie, la personne aveuglée se déplace sur le plateau de cases en cases à l'aide d'un pion. À chaque nouvelle case, il se passe de nouveaux évènements qui permettent de continuer ou non l'aventure. Ces évènements font changer l'ambiance sonore de la pièce.
+During a game, the blindfolded player moves around the board from square to square using a pawn. At each new space, new events occur that determine whether the adventure can continue. These events change the soundscape of the room.
 
-Pour gérer ces changements d'état de l'aventure, le jeu comporte deux parties techniques distinctes, le plateau avec la gestion électronique et la partie numérique avec la gestion du jeu et des feedbacks.
+To manage these changes in the state of the adventure, the game has two distinct technical parts, the board with electronic management and the digital part with game management and feedback.
 
 ![Schéma de communication entre le plateau et le PC](/images/blog/Maldirach/BoardPcCommunication.svg)
 
-## Plateau électronique
+## Electronics in the board
 
-Le plateau a été créé en utilisant des planches découpées à la machine _CNC_ et les éléments du décor ont été imprimés en _3D_. Les cases ont été placées sur le terrain et sont reliées par des chemins gravés dans le bois.
+The board was created using _CNC-cut_ planks, and the scenery elements were _3D_ printed. The tiles were placed on the terrain and connected by paths carved into the wood.
 
-Pour la détection de la navigation, chaque case comporte un **interrupteur à effet Hall**. Il s'agit d'une pièce électronique qui peut ouvrir ou fermer un circuit électrique si elle se trouve dans un champ magnétique. Le pion du jeu comporte un aimant à sa base qui permet de déclencher les interrupteurs.
+To detect navigation, each square has a Hall effect switch. This is an electronic component that can open or close an electrical circuit if it is in a magnetic field. The game pawn has a magnet at its base that triggers the switches.
 
-Tous les interrupteurs sont reliés à une carte électronique _ESP32_ qui permet de transformer les différents signaux en un format lisible par un ordinateur. Wilfried et moi avons mis en place un format commun au deux systèmes et il s'est occupé de la programmation de l'_ESP32_ et je me suis occupé des soudures du circuit.
+All switches are connected to an _ESP32_ which allows the various signals to be transformed into a format readable by the computer. Wilfried and I established a standard format for both systems. He handled the programming of the _ESP32_, and I took care of soldering the circuit.
 
-![Schéma du circuit entre les cases et l'ESP32](/images/blog/Maldirach/ESP32Circuit.svg)
+![Circuit diagram between the boxes and the ESP32](/images/blog/Maldirach/ESP32Circuit.svg)
 
-## Système numérique
+## Digital system
 
-Je me suis occupé du système de gestion du jeu et du _framework_ audio sur le projet. Mon choix de technologie, c'est porté sur _Unity Engine_ et cela pour plusieurs raisons.
+I handled the game management system and the audio _framework_ on the project. My choice of technology was _Unity Engine_ for several reasons.
 
-- Scripting en _C#_ assez rapide
-- Utilisation avec des cartes de type _ESP32_ facile
-- Intégration avec FMOD très aisé
-- Paramétrage du logiciel étant graphique
+- Fast _C#_ scripting
+- Easy to connect with an _ESP32_
+- Very easy integration with _FMOD_
+- Easiness for prototyping
 
-Étant dans un contexte de projet en école de jeu vidéo, la majorité de l'équipe avait de l'expérience avec _Unity_. De plus, l'intégration du moteur avec la librairie _FMOD_ a permis à notre _sound designer_ de travailler très efficacement et de créer des ambiances sonores riches sans nécessiter de développement complexe.
+Since the project was done in the Enjmin which is a video game development university, all the team had experience with _Unity_. Also, the engine's integration with the _FMOD_ library allowed our _sound designer_ to work very efficiently and create rich soundscapes without requiring complex development.
 
-Le projet contient trois scripts principaux qui gèrent tous un aspect du système. Le premier _script_ réceptionne les informations de l'_ESP32_ via un _port serial_ sur un _thread_ en _background_ et notifie les informations reçues via des _Events_. Il effectue un _filtrage temporel_ du signal pour empêcher d'avoir des problèmes d'interférences électroniques. Par exemple, le jeu ne va pas changer d'état si une case est activée moins d'un dixième de seconde. Le second _script_ fait la gestion de l'état du jeu. Il gère quelles cases sont mortelles, en combien de temps et comment recommencer la partie. Le dernier script gère la communication de l'état du jeu avec la librairie _FMOD_.
+The project contains three main scripts that each manage one aspect of the system. The first _script_ receives information from the _ESP32_ via a _serial port_ on a _background thread_ and notifies the received information via an*Events*. It performs _temporal filtering_ of the signal to prevent electronic interference problems. For example, the game will not change state if a sensor is activated for less than a tenth of a second. The second _script_ manages the game state. It manages which spaces are fatal, how long it takes, and how to restart the game. The last script manages game state communication with the _FMOD_ library.
 
-![Schéma de communication du plateau jusqu'à FMOD](/images/blog/Maldirach/DataFlow.svg)
+![Data flow from the board to FMOD](/images/blog/Maldirach/DataFlow.svg)
 
-# Résultats
+# Results
 
-![Playtest du jeu dans un contexte de prototypage](/images/blog/Maldirach/Playtest.webp)
+![Playtest of the game during the prototyping phase](/images/blog/Maldirach/Playtest.webp)
 
-Lors des _PlayTests_, le jeu a été apprécié par les joueurs et joueuses qui ont pu y participer. L'expérience était très instructive sur les moyens de mettre en place des systèmes ludiques et accessibles. Du côté technique, _Unity_ était une solution qui a permis de prototyper très rapidement, même si le résultat est un logiciel plus lourd qu'il ne devrait l'être. Si je devais refaire un projet du genre, je pense que partir sur un programme console simple avec une _dll_ pour _FMOD_ serait amplement suffisant et beaucoup plus léger. Maintenant que le projet est fini je pense qu'il aurait été probablement aussi simple à mettre en place de cette manière.
+During the _playtest_, the players that tried the game enjoyed it a lot.
+The experience was very instructive, we learned a lot about the means of implementing playful and accessible systems.
 
-<ImageLine alt="Illustrations du guide du Maldirarch illustré par Baptiste Lalue" images={illustrations2} aspectRatio={4/3} />
+On the technical side, _Unity_ allowed us to prototype very quickly, even if the resulting software is less optimized than it could be. If I were to do a project like this again, I think starting with a simple console program with a DLL for FMOD would be more than enough and much lighter. Now that the project is finished, I think it probably wouldn't have been that much harder to set it up that way.
 
-Les informations du projet sont disponible sur le site [itch.io](https://lamaxelle.itch.io/a-travers-le-maldirach).
+<ImageLine alt="Illustrations from the Maldirarch guide illustrated by Baptiste Lalue" images={illustrations2} aspectRatio={4/3} />
 
-<iframe src="https://itch.io/embed/2257527" width="100%" frameborder="0"><a href="https://lamaxelle.itch.io/a-travers-le-maldirach">A travers le Maldirach by Eris ✨ - Lamaxelle, Paul Coret, fae.exe, Baptistoux</a></iframe>
+Complementary information about this project are available on [itch.io](https://lamaxelle.itch.io/a-travers-le-maldirach).
+
+<iframe src="https://itch.io/embed/2257527" width="100%" frameborder="0"><a href="https://lamaxelle.itch.io/a-travers-le-maldirach">Across the maldirach ✨ - Lamaxelle, Paul Coret, fae.exe, Baptistoux</a></iframe>

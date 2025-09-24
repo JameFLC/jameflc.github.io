@@ -33,7 +33,7 @@ Ce projet est fondamentalement relié à mon projet de fin d'année de deuxième
 - Les ombres portées
 - La lumière environnementale (illumination globale/ occlusion ambiante)
 
-Le document que j'ai réalisé faisait une longueur de **177** pages (annexe comprise).
+Le document que j'ai réalisé faisait une longueur de **127** pages (annexe comprise).
 
 J'avais également pour objectif de présenter mes recherches à la fin de l'année durant une présentation qui allait durer une **vingtaine de minutes**. Il fallait donc qu'elle soit la plus imagée possible pour permettre au public présent de comprendre intuitivement les concepts présentés. La manière la plus efficace de vulgariser la simulation de lumière était donc d'effectuer beaucoup de visualisations.
 
@@ -57,7 +57,7 @@ Il existe des options alternatives de création de présentation qui fonctionnen
 
 <ImageLine alt="Librairies Manim, React Flow et MotionCanvas" images={codeAnimators} aspectRatio={16/9}/>
 
-Ces deux librairies permettent d'effectuer des visualisations avancées avec un grand contrôle. Manim a par exemple des fonctionnalités de rendu _3D_ de base. Mais, aucune de ces librairies ne contient un moteur de rendu _3D_ réaliste avec des ombres portées, des matériaux _PBR_ ou de l'_illumination globale_. J'aurais donc dû développer un système de _rendu_ avancé en utilisant _WebGL_ ou _ThreeJS_ ce qui aurait demandé plus de travail que je ne pouvais fournir dans la durée avant la présentation.
+Ces trois librairies permettent d'effectuer des visualisations avancées avec un grand contrôle. Manim a par exemple des fonctionnalités de rendu _3D_ de base. Mais, aucune de ces librairies ne contient un moteur de rendu _3D_ réaliste avec des ombres portées, des matériaux _PBR_ ou de l'_illumination globale_. J'aurais donc dû développer un système de _rendu_ avancé en utilisant _WebGL_ ou _ThreeJS_ ce qui aurait demandé plus de travail que je ne pouvais fournir dans la durée avant la présentation.
 
 Je me suis donc tourné vers des _moteurs de jeux_ plus classiques qui me donnaient accès à leurs _renderer_, à l'édition de scènes _3D_, à l'édition de scènes _2D_ et à la création d'_interface utilisateur_ :
 
@@ -90,7 +90,7 @@ J'ai incorporé des éléments _2D_ et _3D_ pour tester le fonctionnement du mot
 
 ![Slide utilisant la version MVP de la librairie](/images/blog/GodotPPT/OldVersion.webp)
 
-J'ai ensuite continué le développement de la librairie pour ajouter les fonctionnalités manquantes pour la présentation d'avril et faire un gros travail de _refactor_ des fonctionnalités existantes.
+J'ai ensuite continué le développement de la librairie pour ajouter les fonctionnalités manquantes pour la présentation d'avril et fait un gros travail de _refactor_ des fonctionnalités existantes.
 
 # Fonctionnalités de la librairie
 
@@ -261,7 +261,7 @@ J'ai ajouté un mode présentateur à la librairie. Celui-ci permet d'avoir une 
 
 Voici une démo du mode présentateur :
 
-![Widget de navigation utilisable à la souris et au clavier](/images/blog/GodotPPT/PresentationMode.mp4)
+![Mode présentateur](/images/blog/GodotPPT/PresentationMode.mp4)
 
 ## Overlay de formes en 2D
 
@@ -274,7 +274,7 @@ Pour cela, le système utilise une _node2D_ et utilise les fonctions `draw_line(
 Scène de test du système d'affichage :
 ![Scène de test du système d'affichage](/images/blog/GodotPPT/LineSystem.mp4)
 
-Comme le système fonctionne sur un modèle hybride, il permet d'effectuer la transition entre un contexte _3D_ et un contexte _2D_ isométrique. Par exemple, dans cet extrait, on passe d'une vue à l'intérieur d'une pièce _3D classique à une vue \_2D_ schématique. La scène reste en _2D_, mais le système anime le _FOV_ de la caméra et le _post-processing_ de la scène pour donner une apparence _2D_.
+Comme le système fonctionne sur un modèle hybride, il permet d'effectuer la transition entre un contexte _3D_ et un contexte _2D_ isométrique. Par exemple, dans cet extrait, on passe d'une vue à l'intérieur d'une pièce _3D classique à une vue \_2D_ schématique. La scène reste en _3D_, mais le système anime le _FOV_ de la caméra et le _post-processing_ de la scène pour donner une apparence _2D_.
 
 Transition d'un environement 3D à une vue 2D qui utilise le système d'affichage de lignes:
 ![Transition d'un environement 3D à une vue 2D qui utilise le système](/images/blog/GodotPPT/3DTo2DTransition.mp4)

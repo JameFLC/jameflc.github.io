@@ -68,4 +68,6 @@
 		alt=""
 		aspectRatio={21 / 9}
 	/>
+
+	<div class="footer-padding"></div>
 </div>
