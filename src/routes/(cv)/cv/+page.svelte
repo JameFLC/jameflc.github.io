@@ -135,6 +135,14 @@
 <section>
 	<SectionTitle>Programming</SectionTitle>
 
+	<h3>Langages</h3>
+	<br />
+	<SkillBadge name="C++" src="/images/skills/CPP.webp" />
+	<SkillBadge name="C#" src="/images/skills/CSharp.webp" />
+	<SkillBadge name="Python" src="/images/skills/Python.webp" />
+	<SkillBadge name="HSLS / GLSL" src="/images/skills/Shader.webp" />
+	<SkillBadge name="TypeScript / JS" src="/images/skills/TS.webp" />
+
 	<h3>Engines</h3>
 	<br />
 	<SkillBadge name="Unreal Engine" src="/images/skills/Unreal.webp" />
@@ -147,14 +155,6 @@
 	<SkillBadge name="QT" src="/images/skills/QT.webp" />
 	<SkillBadge name="Svelte" src="/images/skills/Svelte.webp" />
 	<SkillBadge name="IMGUI" src="/images/skills/SkillPlaceholder.webp" />
-
-	<h3>Languages</h3>
-	<br />
-	<SkillBadge name="C++" src="/images/skills/CPP.webp" />
-	<SkillBadge name="C#" src="/images/skills/CSharp.webp" />
-	<SkillBadge name="Python" src="/images/skills/Python.webp" />
-	<SkillBadge name="HSLS / GLSL" src="/images/skills/Shader.webp" />
-	<SkillBadge name="TypeScript / JS" src="/images/skills/TS.webp" />
 </section>
 <section>
 	<SectionTitle>Dev Tools</SectionTitle>
