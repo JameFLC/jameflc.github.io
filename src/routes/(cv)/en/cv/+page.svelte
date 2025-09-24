@@ -42,10 +42,10 @@
 	<div class="x-centerer">
 		<a
 			class="strong-page-link"
-			href="/documents/cv/fr/CV Jame Floc'h Le Carour - Ingénieur.pdf"
+			href="/documents/cv/en/CV Jame Floc'h Le Carour - Software Engineer.pdf"
 			download
 		>
-			<span>Télécharger le CV</span>
+			<span>Download Resume</span>
 			<IconLinkThin style="--size: 1ch" />
 		</a>
 	</div>
