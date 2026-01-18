@@ -21,15 +21,13 @@
 </script>
 
 <div class="content-wrapper-home">
-	<h1>Hello and welcome to my little corner of the internet !</h1>
+	<h1>Hello and welcome to my corner of the internet!</h1>
 
 	<p>
 		I am <span class="text-black">Jame</span>, a
 		<span class="text-semi-bold">software engineer</span>, game developer and 3D enjoyer based in
-		France. I find joy in building things that can be played, displayed, rotated and clicked, it
-		makes my brain tick. I take pride in making quality software that feel good to use being games,
-		apps or tools. This site is here to be a space to share my journey, projects and my joy of
-		building things.
+		France. I specialize in topics related to 3D, animation, UI, and UX.
+		This website is here to be a space to share my journey, projects and my joy of programming.
 		<br />
 		<br />
 		If you like what you find here then feel free to <Link href="/cv">reach out</Link> 😉

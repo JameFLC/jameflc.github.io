@@ -7,6 +7,7 @@
 	import { websiteURL } from '$lib';
 	import { page } from '$app/state';
 	import IconLinkThin from '$lib/components/icons/IconLinkThin.svelte';
+	import Contribution from '$lib/components/cv/Contribution.svelte';
 </script>
 
 <svelte:head>
@@ -54,6 +55,23 @@
 	<SectionTitle>Contact Informations</SectionTitle>
 
 	<ContactList />
+</section>
+<section>
+	<SectionTitle>Contributions</SectionTitle>
+	<div class="auto-grid" style="gap: var(--rl);">
+		<Contribution
+			src="/images/games/Splitgate2.webp"
+			name="Splitgate: Arena Reloaded  "/>
+		<Contribution
+			src="/images/games/OblivionRemastered.webp"
+			name="Oblivion Remastered"/>
+		<Contribution
+			src="/images/games/Marvel1943RiseOfHydra.webp"
+			name="Marvel 1943 Rise Of Hydra"/>
+		<Contribution
+			src="/images/games/NDA.webp"
+			name="Unanounced (x2)"/>
+	</div>
 </section>
 <section>
 	<SectionTitle>Professional Experience</SectionTitle>
