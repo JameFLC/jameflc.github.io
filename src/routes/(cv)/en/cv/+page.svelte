@@ -36,7 +36,7 @@
 		feel good to use being games, apps or tools.
 		<br />
 		<br />
-		I have an extensive knowledge of light transport technologies for realtime applications,
+		I have an extensive knowledge in
 		<span class="text-bold">technical art, shaders, 3D modeling, and real-time 3D rendering.</span>
 	</Profile>
 
