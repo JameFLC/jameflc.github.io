@@ -70,7 +70,7 @@
 			name="Marvel 1943 Rise Of Hydra"/>
 		<Contribution
 			src="/images/games/NDA.webp"
-			name="Unanounced (x2)"/>
+			name="Undisclosed (x2)"/>
 	</div>
 </section>
 <section>
@@ -78,6 +78,17 @@
 
 	<ExperienceTimeline
 		experiences={[
+			{
+				Place: 'Efor-group',
+				Role: 'Robotics Software Engineer & UI Specialist',
+				Description: [
+					"Developed and designed user interfaces for an ophthalmic surgical robot currently under development.",
+					"Developed internal robot features related to its safety systems and arm management.",
+					"Created a Qt debugging tool similar to the Chrome/Firefox inspector.",
+				],
+				Begin: new Date('2025-11'),
+				End: 'Now'
+			},
 			{
 				Place: 'Virtuos Games',
 				Role: 'Generalist Game Software Engineer ',
@@ -89,7 +100,7 @@
 					'Updated Btree memory allocators to replace RedBlackTree in a proprietary C++ engine for an AAA game.'
 				],
 				Begin: new Date('2022-10'),
-				End: 'Now'
+				End: new Date('2025-9')
 			},
 			{
 				Place: 'Black Shamrock',

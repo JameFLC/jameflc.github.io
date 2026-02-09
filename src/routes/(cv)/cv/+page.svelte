@@ -72,7 +72,7 @@
 			name="Marvel 1943 Rise Of Hydra"/>
 		<Contribution
 			src="/images/games/NDA.webp"
-			name="Unanounced (x2)"/>
+			name="Undisclosed (x2)"/>
 	</div>
 </section>
 <section>
@@ -81,8 +81,19 @@
 	<ExperienceTimeline
 		experiences={[
 			{
+				Place: 'Efor-group',
+				Role: 'Robotics Software Engineer & UI Specialist',
+				Description: [
+					"Développé et designé des interfaces utilisateurs d'un robot de chirurgie ophtalmique en cours de développement.",
+					"Développé des fonctionnalités internes du robot concernant ses systèmes de sécurité et la gestion de ses bras.",
+					"Création d'un outil de débuggage Qt semblable à l'inspecteur de Chrome/Firefox.",
+				],
+				Begin: new Date('2025-11'),
+				End: 'Now'
+			},
+			{
 				Place: 'Virtuos Games',
-				Role: 'Generalist Game Software Engineer ',
+				Role: 'Generalist Game Software Engineer',
 				Description: [
 					"Développé des menus et d'outils de manipulation 3D avec Unreal Engine 5 dans le jeu Splitgate 2. Mise en place d'interfaces multiplateformes pour les manettes assurant les certifications sur consoles de jeu.",
 					'Développé un plugin de benchmark de performance pour Unreal Engine intégré dans Marvel 1943: Rise of Hydra et Oblivion Remaster. Création du plugin, et des outils 3D et 2D. Gestion de la visualisation des données. Projet présenté à la GDC. ',
@@ -90,7 +101,7 @@
 					"Mise en place d'allocateurs mémoire de Btree pour remplacer les RedBlackTree dans un moteur propriétaire en C++ pour un jeu AAA."
 				],
 				Begin: new Date('2022-10'),
-				End: 'Now'
+				End: new Date('2025-9')
 			},
 			{
 				Place: 'Black Shamrock',

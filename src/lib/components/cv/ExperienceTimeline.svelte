@@ -63,8 +63,8 @@
 				<p class="no-wrap date">{getFormatedDuration(experience)}</p>
 				<div class="experience">
 					<p class="context text-semi-bold text-semi-bold">
-						<span class="no-wrap text-black">{getFormatedPlace(experience)}</span>
-						<span class={experience.Place ? 'no-wrap' : ''}>{experience.Role}</span>
+						<span class=" text-black">{getFormatedPlace(experience)}</span>
+						<span class={experience.Place ? '' : ''}>{experience.Role}</span>
 					</p>
 					{#if Array.isArray(experience.Description)}
 						{#each experience.Description as paragraph}
@@ -134,6 +134,13 @@
 		align-items: flex-start;
 	}
 
+	@media(max-width: 52rem)
+	{
+		.info-wrapper {
+			flex-direction: column;
+		}
+	}
+
 	.date {
 		color: var(--text-secondary);
 		flex: 0 0 auto;
@@ -144,7 +151,6 @@
 
 	.experience {
 		flex: 1 1 0;
-		min-width: 30ch;
 	}
 
 	.experience p:last-of-type {
