@@ -154,7 +154,7 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/RobotTruvanov.webp"
-		title="Robot inspired by @art_truvanov"
+		title="Wheel Robot"
 		tag="Render"
 		aspectRatio={16 / 9}
 	/>

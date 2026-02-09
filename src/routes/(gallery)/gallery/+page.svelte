@@ -154,7 +154,7 @@
 
 	<GalleryThumbnail
 		src="/images/gallery/RobotTruvanov.webp"
-		title="Robot inspiré par @art_truvanov"
+		title="Wheel Robot"
 		tag="Rendu 3D"
 		aspectRatio={16 / 9}
 	/>
