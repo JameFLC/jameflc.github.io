@@ -11,27 +11,27 @@
 		<link href="../_app/immutable/assets/blog.D9BamZMJ.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/ImageLine.CAADl_rs.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/BlogHeader.C8YjtI31.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.C8nkhGs7.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BjfDrT0o.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.BF_Ii97X.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/B8zCTryb.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/C2mjbg4a.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/C9H3H6J8.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.D62jdy3t.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.3Ul2lRGF.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CNLGrkh2.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/C7wrbDMJ.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/DwWAYZ1z.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CC5oUZq1.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/DVYUBRO0.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.HtX6K3O_.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.CTez5txT.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CRz8MpET.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/BzKhJWuX.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CQQzifPd.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/DEwCLh3F.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CXkxft24.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/ah4Xmhdg.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Dy-Lfy_E.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/D_b98XEP.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/2.CZ1MXSq4.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/6.BafSIT4v.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Cp9YD0Vn.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/ClmLdJHF.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CMSFZu1H.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/2.Boomg3O9.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/6.BlfFLQS4.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DhbD_-rE.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/E3tY8WWP.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/UHcldzDE.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Bzi1G87m.js"><!--[--><meta property="og:type" content="article"> <meta property="og:title" content="Gari, l'assistant vocal moustachu"> <meta property="og:description" content="Un projet de création d'un miroir connecté avec son propre assistant vocal fonctionnel, créé de toutes pièce."> <meta property="og:image" content="https://www.jame.works/images/thumbnails/Gari.webp"> <meta name="twitter:card" content="summary_large_image"> <meta property="twitter:domain" content="https://www.jame.works"> <meta property="twitter:url" content="https://www.jame.works/blog/gari"> <meta name="twitter:title" content="Gari, l'assistant vocal moustachu"> <meta name="twitter:description" content="Un projet de création d'un miroir connecté avec son propre assistant vocal fonctionnel, créé de toutes pièce."> <meta name="twitter:image" content="https://www.jame.works/images/thumbnails/Gari.webp"><!--]--><title>Gari, l'assistant vocal moustachu</title>
@@ -82,8 +82,8 @@ Toutes les fonctionnalités du miroir ont donc été créées de toutes pièces:
 							JSON
 					</div>
 				</div>
-			</div><!----> <p>La réponse <strong>HTML</strong> est convertie, et les données sont ensuite transmises aux systèmes d’UI et au système audio pour pouvoir les passer à la personne qui a posé la question.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/Pipeline.svg" alt="Pipeline de data du système"><figcaption>Pipeline de data du système</figcaption></figure> <h2>Interface Graphique</h2> <p><strong>Godot</strong> contient un système d’<strong>UI</strong> complet qui s’intègre très bien avec le reste du moteur. Cela rend la création d’éléments non standards très simple. Par exemple, il est possible de créer des “widgets” avec un affichage géré par des <strong>shaders</strong>, qui ont des animations complexes ou qui affichent des éléments en <strong>3D</strong> sans avoir à intégrer des librairies externes.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/Gari_V2_Physical_Concept.webp" alt="Concept de l'interface de Gari"><figcaption>Concept de l'interface de Gari</figcaption></figure> <p>Chaque élément de l’interface est créé dans une scène <strong>UI</strong> avec un script à sa <strong>root</strong> qui permet de communiquer avec.</p> <h3>Horloge</h3> <p>Commençons par l’élément le plus simple de l’interface, l’horloge. Il s’agit d’une scène simple qui contient plusieurs <strong>labels</strong> qui sont mis à jour chaque seconde avec l’heure interne du système.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/Clock.webp" alt="Horloge"><figcaption>Horloge</figcaption></figure> <p>⚠️Warning<strong>⚠️
-À la base j’avais prévu d’animer la</strong>weight** de la police pour signifier l’activation de la commande vocale.
+			</div><!----> <p>La réponse <strong>HTML</strong> est convertie, et les données sont ensuite transmises aux systèmes d’UI et au système audio pour pouvoir les passer à la personne qui a posé la question.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/Pipeline.svg" alt="Pipeline de data du système"><figcaption>Pipeline de data du système</figcaption></figure> <h2>Interface Graphique</h2> <p><strong>Godot</strong> contient un système d’<strong>UI</strong> complet qui s’intègre très bien avec le reste du moteur. Cela rend la création d’éléments non standards très simple. Par exemple, il est possible de créer des “widgets” avec un affichage géré par des <strong>shaders</strong>, qui ont des animations complexes ou qui affichent des éléments en <strong>3D</strong> sans avoir à intégrer des librairies externes.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/Gari_V2_Physical_Concept.webp" alt="Concept de l'interface de Gari"><figcaption>Concept de l'interface de Gari</figcaption></figure> <p>Chaque élément de l’interface est créé dans une scène <strong>UI</strong> avec un script à sa <strong>root</strong> qui permet de communiquer avec.</p> <h3>Horloge</h3> <p>Commençons par l’élément le plus simple de l’interface, l’horloge. Il s’agit d’une scène simple qui contient plusieurs <strong>labels</strong> qui sont mis à jour chaque seconde avec l’heure interne du système.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/Clock.webp" alt="Horloge"><figcaption>Horloge</figcaption></figure> <p>⚠️<strong>Warning</strong>⚠️
+À la base j’avais prévu d’animer la <strong>weight</strong> de la police pour signifier l’activation de la commande vocale.
 Par exemple avoir le texte de l’heure qui devienne gras durant l’activation.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/ClockFontWeight.webp" alt="Animation de la weight de l'horloge"><figcaption>Animation de la weight de l'horloge</figcaption></figure> <p>Il est techniquement possible de le faire dans <strong>Godot</strong> en utilisant une <strong>police variable</strong> et en changeant les paramètres durant une animation, mais cela crée une fuite mémoire très rapidement !</p> <p>Godot crée une <strong>texture atlas</strong> de la police pour chaque changement de paramètre. Donc, pour une animation à 60fps, <strong>Godot</strong> va créer une soixantaine de textures par seconde. En plus de ça, l’ancien <strong>atlas</strong> n’est pas supprimé automatiquement, normalement les ressources sont gérées par le <strong>Garbage Collector</strong> mais pas dans ce cas précis, il s’agit probablement d’un problème avec le cache interne.</p> <p>Finalement, l’horloge a une police statique et d’autres éléments d’interface font le job d’indiquer l’activation.</p> <h3>Météo</h3> <p>Le <strong>widget</strong> de météo permet d’afficher la météo pour les 5 prochaines heures.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/WeatherTransition.webp" alt="Animation de la météo"><figcaption>Animation de la météo</figcaption></figure> <p>J’ai créé une librairie d’icônes compatible avec les icônes <strong>OpenWeather</strong>. Chacun d’entre eux est animé à la main et a une variation jour/nuit si applicable. Chaque icône est ensuite suite mise dans une scène séparée qui est instanciée par le <strong>widget</strong> météo.</p> <figure class="mobile-side-merge"><img src="/images/blog/Gari/WeatherAnimation.webp" alt="Icones animées"><figcaption>Icones animées</figcaption></figure> <h3>Bourse</h3> <p>Le <strong>widget</strong> d’affichage des informations boursières est plus complexe que celui de la météo.
 Le graphique de l’évolution boursière entièrement géré par un <strong>shader</strong>. Il est représenté par une fonction/courbe en <strong>2D</strong> qui est calculée à partir d’une <strong>texture de gradient</strong> générée <strong>procéduralement</strong>. La position dans le gradient représente l’axe X de la fonction tandis que la valeur de luminosité représente l’axe Y de la fonction.</p> <!---->
 			<div class="blog-code-block mobile-side-merge">
@@ -156,15 +156,15 @@ Le graphique de l’évolution boursière entièrement géré par un <strong>sha
 			
 			<script>
 				{
-					__sveltekit_ly4od2 = {
+					__sveltekit_8lhdx7 = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../_app/immutable/entry/start.C8nkhGs7.js"),
-						import("../_app/immutable/entry/app.D62jdy3t.js")
+						import("../_app/immutable/entry/start.BF_Ii97X.js"),
+						import("../_app/immutable/entry/app.3Ul2lRGF.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2, 6],
