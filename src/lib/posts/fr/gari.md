@@ -129,7 +129,7 @@ Commençons par l'élément le plus simple de l'interface, l'horloge. Il s'agit 
 
 ![Horloge](/images/blog/Gari/Clock.webp)
 
-⚠️Warning**⚠️
+⚠️**Warning**⚠️
 À la base j'avais prévu d'animer la **weight** de la police pour signifier l'activation de la commande vocale.
 Par exemple avoir le texte de l'heure qui devienne gras durant l'activation.
 
