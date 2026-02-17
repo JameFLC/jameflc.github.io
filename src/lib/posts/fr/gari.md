@@ -7,7 +7,7 @@ type: project
 tags:
   - godot
   - sdf
-  - ai
+  - iot
 published: true
 ---
 
