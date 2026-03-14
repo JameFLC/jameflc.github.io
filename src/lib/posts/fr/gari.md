@@ -243,7 +243,7 @@ Pour pouvoir afficher le panel d'émotions, d'états et d'animations de **Gari**
 
 Le **shader** utilise les paramètres pour générer les **SDF** qui permettent d'afficher le visage. Les éléments de la moustache sont des rectangles avec des coins avec des rayons variables. Les yeux sont des rings ayant des coins arrondis. Toutes les formules sont basées sur les travaux d'[Inigo Quilez](https://iquilezles.org/) le créateur de [Shadertoy](https://shadertoy.com). 
 
-![Graph de blend d'animation](/images/blog/Gari/GariSDF.webp)
+![Visualisation SDF de Gari](/images/blog/Gari/GariSDF.webp)
 
 Pour gérer les transitions entre tous les états, j'ai créé plusieurs animations distinctes pour la moustache et les yeux que je contrôle à l'aide d'un `Animation Tree`. Il me permet de fusionner les différentes animations et d'effectuer des transitions entre les différentes expressions faciales.
 
